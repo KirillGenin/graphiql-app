@@ -5,7 +5,7 @@ interface IMain {
 }
 
 const Main: FC<IMain> = ({ children }) => {
-  return <h1 className="main">{children}</h1>;
+  return <main className="main">{children}</main>;
 };
 
 export default Main;

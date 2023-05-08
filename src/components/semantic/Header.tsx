@@ -10,10 +10,10 @@ const Header = () => {
           Home
         </NavLink>
         <NavLink to={MainRoutes.AuthPage} className="navigation__item">
-          Forms
+          Registration
         </NavLink>
         <NavLink to={MainRoutes.GraphPage} className="navigation__item">
-          About Us
+          GraphiQl
         </NavLink>
       </nav>
     </header>
