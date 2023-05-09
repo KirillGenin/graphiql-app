@@ -4,14 +4,10 @@ import { Navigate, useNavigate } from 'react-router';
 import { MainRoutes, Registration } from '../../../types/enums';
 import { useAuth } from '../../../utils/hooks/useAuth';
 import { useAppDispatch, useAppSelector } from '../../../store/hooks';
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  User,
-} from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, User } from 'firebase/auth';
 import { setUser } from '../../../store/slices/authSlice';
 import AuthType from './UI/AuthType';
+import { auth } from '../../../utils/auth/firebase';
 
 export interface NewUser extends User {
   accessToken: string;
@@ -26,7 +22,6 @@ const AuthPage = () => {
 
   const handleAuth = (e: React.FormEvent, email: string, password: string) => {
     e.preventDefault();
-    const auth = getAuth();
 
     if (regType === Registration.SignUp) {
       createUserWithEmailAndPassword(auth, email, password)
