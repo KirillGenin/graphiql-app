@@ -1,7 +1,8 @@
 import React from 'react';
-import { MainRoutes } from '../../types/enums';
+import { MainRoutes } from '../../../types/enums';
 import { NavLink } from 'react-router-dom';
-import { useAuth } from '../../utils/hooks/useAuth';
+import { useAuth } from '../../../utils/hooks/useAuth';
+import styles from './WelcomePage.module.css';
 
 const WelcomePage = () => {
   const { isAuth } = useAuth();

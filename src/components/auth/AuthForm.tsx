@@ -14,13 +14,13 @@ const AuthForm: FC<IFormProps> = ({ title, handleClick }) => {
       <input
         type="email"
         value={email}
-        placeholder="email"
+        placeholder="Enter your email adress"
         onChange={(e) => setEmail(e.target.value)}
       />
       <input
         type="password"
         value={password}
-        placeholder="password"
+        placeholder="Enter your password"
         onChange={(e) => setPassword(e.target.value)}
       />
       <button>{title}</button>

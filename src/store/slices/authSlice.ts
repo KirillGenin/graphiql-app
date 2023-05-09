@@ -1,9 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { Registration } from '../../types/enums';
 
-const initialState = {
-  email: null,
-  token: null,
-  id: null,
+interface IInitState {
+  email: string;
+  token: string;
+  id: string;
+  regType: Registration;
+}
+
+const initialState: IInitState = {
+  email: '',
+  token: '',
+  id: '',
+  regType: Registration.SignUp,
 };
 
 const userSlice = createSlice({
@@ -16,13 +25,17 @@ const userSlice = createSlice({
       state.id = action.payload.id;
     },
     removeUser(state) {
-      state.email = null;
-      state.token = null;
-      state.id = null;
+      state.email = '';
+      state.token = '';
+      state.id = '';
+    },
+    toggleRegType(state, action) {
+      state.regType = action.payload;
+      console.log(action.payload);
     },
   },
 });
 
-export const { setUser, removeUser } = userSlice.actions;
+export const { setUser, removeUser, toggleRegType } = userSlice.actions;
 
 export default userSlice.reducer;
