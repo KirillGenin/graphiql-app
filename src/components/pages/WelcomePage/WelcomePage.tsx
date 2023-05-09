@@ -3,14 +3,16 @@ import { MainRoutes } from '../../../types/enums';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../../utils/hooks/useAuth';
 import styles from './WelcomePage.module.css';
+import { useAppSelector } from '../../../store/hooks';
 
 const WelcomePage = () => {
   const { isAuth } = useAuth();
+  const email = useAppSelector((state) => state.user.email);
 
   return isAuth ? (
     <h3>
-      Hi! Welcome back&nbsp; {/* add users name here! */}
-      <NavLink to={MainRoutes.GraphPage}>home</NavLink>
+      {`Hi! Welcome back ${email}`}
+      <NavLink to={MainRoutes.GraphPage}></NavLink>
     </h3>
   ) : (
     <h3>
