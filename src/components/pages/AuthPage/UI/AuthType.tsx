@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Registration } from '../../../../types/enums';
 import styles from '../AuthPage.module.css';
 import { toggleRegType } from '../../../../store/slices/authSlice';

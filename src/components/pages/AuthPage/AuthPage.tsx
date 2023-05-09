@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AuthForm from '../../auth/AuthForm';
 import { Navigate, useNavigate } from 'react-router';
-import { MainRoutes, Registration } from '../../../types/enums';
+import { MainRoutes } from '../../../types/enums';
 import { useAuth } from '../../../utils/hooks/useAuth';
 import { useAppDispatch } from '../../../store/hooks';
 import { getAuth, createUserWithEmailAndPassword, User } from 'firebase/auth';
 import { setUser } from '../../../store/slices/authSlice';
 import AuthType from './UI/AuthType';
-import styles from './AuthPage.module.css';
 
 export interface NewUser extends User {
   accessToken: string;
