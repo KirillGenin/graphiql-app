@@ -1,10 +1,15 @@
 import React from 'react';
 import AuthForm from '../../auth/AuthForm';
 import { Navigate, useNavigate } from 'react-router';
-import { MainRoutes } from '../../../types/enums';
+import { MainRoutes, Registration } from '../../../types/enums';
 import { useAuth } from '../../../utils/hooks/useAuth';
-import { useAppDispatch } from '../../../store/hooks';
-import { getAuth, createUserWithEmailAndPassword, User } from 'firebase/auth';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  User,
+} from 'firebase/auth';
 import { setUser } from '../../../store/slices/authSlice';
 import AuthType from './UI/AuthType';
 
@@ -16,15 +21,30 @@ const AuthPage = () => {
   const { isAuth } = useAuth();
 
   const dispatch = useAppDispatch();
+  const regType = useAppSelector((state) => state.user.regType);
   const navigate = useNavigate();
 
   const handleAuth = (e: React.FormEvent, email: string, password: string) => {
     e.preventDefault();
     const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((e) => {
+
+    if (regType === Registration.SignUp) {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((e) => {
+          const user = e.user as NewUser;
+          dispatch(
+            setUser({
+              email: user.email,
+              id: user.uid,
+              token: user.accessToken,
+            })
+          );
+          navigate(MainRoutes.WelcomePage);
+        })
+        .catch((error) => console.error(error.message));
+    } else if (regType === Registration.LogIn) {
+      signInWithEmailAndPassword(auth, email, password).then((e) => {
         const user = e.user as NewUser;
-        console.log(user);
         dispatch(
           setUser({
             email: user.email,
@@ -32,10 +52,9 @@ const AuthPage = () => {
             token: user.accessToken,
           })
         );
-        navigate(MainRoutes.WelcomePage);
-      })
-      .catch((error) => console.error(error.message));
-    console.log('Submit', email, password);
+        navigate('/');
+      });
+    }
   };
 
   return isAuth ? (

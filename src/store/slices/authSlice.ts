@@ -31,7 +31,6 @@ const userSlice = createSlice({
     },
     toggleRegType(state, action) {
       state.regType = action.payload;
-      console.log(action.payload);
     },
   },
 });
