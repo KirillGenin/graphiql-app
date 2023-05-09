@@ -1,18 +1,16 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { MainRoutes } from '../../types/enums';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../utils/auth/firebase';
 import { useAppDispatch } from '../../store/hooks';
 import { removeUser } from '../../store/slices/authSlice';
 
 const Header = () => {
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     dispatch(removeUser());
-    // navigate(MainRoutes.WelcomePage);
+    navigate(MainRoutes.WelcomePage);
   };
 
   return (
