@@ -25,8 +25,8 @@ const AuthPage = () => {
 
     if (regType === Registration.SignUp) {
       createUserWithEmailAndPassword(auth, email, password)
-        .then((e) => {
-          const user = e.user as NewUser;
+        .then((data) => {
+          const user = data.user as NewUser;
           dispatch(
             setUser({
               email: user.email,
@@ -38,8 +38,8 @@ const AuthPage = () => {
         })
         .catch((error) => console.error(error.message));
     } else if (regType === Registration.LogIn) {
-      signInWithEmailAndPassword(auth, email, password).then((e) => {
-        const user = e.user as NewUser;
+      signInWithEmailAndPassword(auth, email, password).then((data) => {
+        const user = data.user as NewUser;
         dispatch(
           setUser({
             email: user.email,
