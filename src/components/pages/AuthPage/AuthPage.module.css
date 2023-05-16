@@ -1,0 +1,7 @@
+.toggler {
+  text-decoration: underline;
+}
+
+.toggler:hover {
+  cursor: pointer;
+}
