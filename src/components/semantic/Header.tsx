@@ -1,7 +1,11 @@
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { MainRoutes } from '../../types/enums';
 import cookie from 'cookie';
+import { Button } from '@mantine/core';
+import { NavLink as NavLinkUi } from '@mantine/core';
+import { IconHome2, IconLogout, IconLogin, IconDatabaseSearch } from '@tabler/icons-react';
+import styles from './Header.module.css';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -15,19 +19,42 @@ const Header = () => {
   };
 
   return (
-    <header className="header">
-      <nav className="navigation">
-        <NavLink to={MainRoutes.WelcomePage} className="navigation__item">
-          Home
-        </NavLink>
-        <NavLink to={MainRoutes.AuthPage} className="navigation__item">
-          Registration
-        </NavLink>
-        <NavLink to={MainRoutes.GraphPage} className="navigation__item">
-          GraphiQl
-        </NavLink>
+    <header className={styles.header}>
+      <nav className={styles.navigation}>
+        <NavLinkUi
+          w={'8.5rem'}
+          label="Home"
+          onClick={() => navigate(MainRoutes.WelcomePage)}
+          icon={<IconHome2 size="1rem" stroke={1.5} />}
+        />
+        <NavLinkUi
+          w={'8.5rem'}
+          label="Registration"
+          onClick={() => navigate(MainRoutes.AuthPage)}
+          icon={<IconLogin size={'1.2rem'} />}
+        />
+        <NavLinkUi
+          w={'8.5rem'}
+          label="GraphiQL"
+          onClick={() => navigate(MainRoutes.GraphPage)}
+          icon={<IconDatabaseSearch size={'1.1rem'} />}
+        />
+        <Button
+          onClick={handleLogout}
+          rightIcon={<IconLogout size={'1.2rem'} />}
+          variant="light"
+          color="dark"
+          radius="md"
+          bg="#ffffff"
+          styles={{
+            root: {
+              ':hover': { backgroundColor: '#f3f0f0' },
+            },
+          }}
+        >
+          Log out
+        </Button>
       </nav>
-      <button onClick={handleLogout}>Log out</button>
     </header>
   );
 };
