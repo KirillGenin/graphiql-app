@@ -12,6 +12,14 @@ const AuthForm: FC<IFormProps> = ({ title, handleClick }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const inputStyles = {
+    input: {
+      ':focus': {
+        borderColor: 'gray',
+      },
+    },
+  };
+
   return (
     <form className={styles.form} onSubmit={(e) => handleClick(e, email, password)}>
       <Input
@@ -19,12 +27,14 @@ const AuthForm: FC<IFormProps> = ({ title, handleClick }) => {
         value={password}
         placeholder="Enter your email adress"
         onChange={(e) => setEmail(e.target.value)}
+        styles={inputStyles}
       />
       <Input
         type="password"
         value={password}
         placeholder="Enter your password"
         onChange={(e) => setPassword(e.target.value)}
+        styles={inputStyles}
       />{' '}
       <Button
         rightIcon={<IconLogin size={'1.2rem'} />}
@@ -32,6 +42,7 @@ const AuthForm: FC<IFormProps> = ({ title, handleClick }) => {
         color="dark"
         bg="#ffffff"
         radius="md"
+        w={'8rem'}
         styles={{
           root: {
             ':hover': { backgroundColor: '#f3f0f0' },

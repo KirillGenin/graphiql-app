@@ -39,22 +39,23 @@ const Header = () => {
           onClick={() => navigate(MainRoutes.GraphPage)}
           icon={<IconDatabaseSearch size={'1.1rem'} />}
         />
-        <Button
-          onClick={handleLogout}
-          rightIcon={<IconLogout size={'1.2rem'} />}
-          variant="light"
-          color="dark"
-          radius="md"
-          bg="#ffffff"
-          styles={{
-            root: {
-              ':hover': { backgroundColor: '#f3f0f0' },
-            },
-          }}
-        >
-          Log out
-        </Button>
       </nav>
+      <Button
+        onClick={handleLogout}
+        rightIcon={<IconLogout size={'1.2rem'} />}
+        variant="light"
+        color="dark"
+        radius="md"
+        bg="#ffffff"
+        w={'8rem'}
+        styles={{
+          root: {
+            ':hover': { backgroundColor: '#f3f0f0' },
+          },
+        }}
+      >
+        Log out
+      </Button>
     </header>
   );
 };

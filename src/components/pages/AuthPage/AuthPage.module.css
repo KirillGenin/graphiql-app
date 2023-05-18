@@ -1,7 +1,20 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .toggler {
   text-decoration: underline;
 }
 
 .toggler:hover {
   cursor: pointer;
+}
+
+.auth_type {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.auth_message {
 }
