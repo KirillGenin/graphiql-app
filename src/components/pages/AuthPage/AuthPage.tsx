@@ -5,8 +5,9 @@ import { MainRoutes, Registration } from '../../../types/enums';
 import { useAuth } from '../../../utils/hooks/useAuth';
 import { useAppSelector } from '../../../store/hooks';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, User } from 'firebase/auth';
-import AuthType from './UI/AuthType';
 import { auth } from '../../../utils/auth/firebase';
+import AuthType from './UI/AuthType';
+import styles from './AuthPage.module.css';
 
 export interface NewUser extends User {
   accessToken: string;
@@ -22,6 +23,7 @@ const AuthPage = () => {
 
   const handleAuth = (e: React.FormEvent, email: string, password: string) => {
     e.preventDefault();
+    console.log('click');
 
     if (regType === Registration.SignUp) {
       createUserWithEmailAndPassword(auth, email, password)
@@ -47,13 +49,13 @@ const AuthPage = () => {
   return isAuth ? (
     <Navigate to={MainRoutes.WelcomePage} />
   ) : (
-    <>
+    <div className={styles.wrapper}>
       <AuthForm
         title={regType === Registration.LogIn ? 'Log In' : 'Sign Up'}
         handleClick={handleAuth}
       />
       <AuthType />
-    </>
+    </div>
   );
 };
 

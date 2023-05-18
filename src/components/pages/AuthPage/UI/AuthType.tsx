@@ -1,17 +1,18 @@
 import React from 'react';
 import { Registration } from '../../../../types/enums';
-import styles from '../AuthPage.module.css';
 import { toggleRegType } from '../../../../store/slices/authSlice';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
+import styles from '../AuthPage.module.css';
 
-const HandleAuthType = () => {
+const AuthType = () => {
   const dispatch = useAppDispatch();
   const registration = useAppSelector((state) => state.user.regType);
 
   if (registration === Registration.SignUp) {
     return (
-      <div>
-        Already have an account?{' '}
+      <div className={styles.auth_type}>
+        <span className={styles.auth_message}>Already have an account?</span>
+        <span>&nbsp;</span>
         <span
           className={styles.toggler}
           onClick={() => dispatch(toggleRegType(Registration.LogIn))}
@@ -22,8 +23,9 @@ const HandleAuthType = () => {
     );
   } else {
     return (
-      <div>
-        Don`t have an account?{' '}
+      <div className={styles.auth_type}>
+        <span className={styles.auth_message}>Don`t have an account?</span>
+        <span>&nbsp;</span>
         <span
           className={styles.toggler}
           onClick={() => dispatch(toggleRegType(Registration.SignUp))}
@@ -35,4 +37,4 @@ const HandleAuthType = () => {
   }
 };
 
-export default HandleAuthType;
+export default AuthType;
