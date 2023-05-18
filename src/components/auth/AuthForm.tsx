@@ -21,10 +21,10 @@ const AuthForm: FC<IFormProps> = ({ title, handleClick }) => {
   };
 
   return (
-    <form className={styles.form} onSubmit={(e) => handleClick(e, email, password)}>
+    <form className={styles.form}>
       <Input
         type="email"
-        value={password}
+        value={email}
         placeholder="Enter your email adress"
         onChange={(e) => setEmail(e.target.value)}
         styles={inputStyles}
@@ -37,6 +37,8 @@ const AuthForm: FC<IFormProps> = ({ title, handleClick }) => {
         styles={inputStyles}
       />{' '}
       <Button
+        type="submit"
+        onClick={(e) => handleClick(e, email, password)}
         rightIcon={<IconLogin size={'1.2rem'} />}
         variant="light"
         color="dark"

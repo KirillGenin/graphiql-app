@@ -23,6 +23,7 @@ const AuthPage = () => {
 
   const handleAuth = (e: React.FormEvent, email: string, password: string) => {
     e.preventDefault();
+    console.log('click');
 
     if (regType === Registration.SignUp) {
       createUserWithEmailAndPassword(auth, email, password)
