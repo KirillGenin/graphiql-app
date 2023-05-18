@@ -3,11 +3,11 @@ import { MainRoutes } from '../../../types/enums';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../../utils/hooks/useAuth';
 import styles from './WelcomePage.module.css';
-import { useAppSelector } from '../../../store/hooks';
+import cookie from 'cookie';
 
 const WelcomePage = () => {
   const { isAuth } = useAuth();
-  const email = useAppSelector((state) => state.user.email);
+  const { email } = cookie.parse(document.cookie);
 
   return isAuth ? (
     <h3>
