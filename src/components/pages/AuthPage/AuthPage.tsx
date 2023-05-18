@@ -3,9 +3,8 @@ import AuthForm from '../../auth/AuthForm';
 import { Navigate, useNavigate } from 'react-router';
 import { MainRoutes, Registration } from '../../../types/enums';
 import { useAuth } from '../../../utils/hooks/useAuth';
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import { useAppSelector } from '../../../store/hooks';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, User } from 'firebase/auth';
-import { setUser } from '../../../store/slices/authSlice';
 import AuthType from './UI/AuthType';
 import { auth } from '../../../utils/auth/firebase';
 
@@ -16,9 +15,10 @@ export interface NewUser extends User {
 const AuthPage = () => {
   const { isAuth } = useAuth();
 
-  const dispatch = useAppDispatch();
   const regType = useAppSelector((state) => state.user.regType);
   const navigate = useNavigate();
+
+  const expireDate = new Date(Date.now() + 1000 * 60 * 60 * 24 * 7);
 
   const handleAuth = (e: React.FormEvent, email: string, password: string) => {
     e.preventDefault();
@@ -27,26 +27,18 @@ const AuthPage = () => {
       createUserWithEmailAndPassword(auth, email, password)
         .then((data) => {
           const user = data.user as NewUser;
-          dispatch(
-            setUser({
-              email: user.email,
-              id: user.uid,
-              token: user.accessToken,
-            })
-          );
+          document.cookie = `email=${user.email}; expires=${expireDate}`;
+          document.cookie = `id=${user.uid}; expires=${expireDate}`;
+          document.cookie = `token=${user.accessToken}; expires=${expireDate}`;
           navigate(MainRoutes.WelcomePage);
         })
         .catch((error) => console.error(error.message));
     } else if (regType === Registration.LogIn) {
       signInWithEmailAndPassword(auth, email, password).then((data) => {
         const user = data.user as NewUser;
-        dispatch(
-          setUser({
-            email: user.email,
-            id: user.uid,
-            token: user.accessToken,
-          })
-        );
+        document.cookie = `email=${user.email}; expires=${expireDate}`;
+        document.cookie = `id=${user.uid}; expires=${expireDate}`;
+        document.cookie = `token=${user.accessToken}; expires=${expireDate}`;
         navigate('/');
       });
     }

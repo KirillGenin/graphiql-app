@@ -1,7 +1,7 @@
-import { useAppSelector } from '../../store/hooks';
+import cookie from 'cookie';
 
 export const useAuth = () => {
-  const { email, token, id } = useAppSelector((state) => state.user);
+  const { email, token, id } = cookie.parse(document.cookie);
 
   return {
     isAuth: !!email,

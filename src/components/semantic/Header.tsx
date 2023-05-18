@@ -1,15 +1,16 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { MainRoutes } from '../../types/enums';
-import { useAppDispatch } from '../../store/hooks';
-import { removeUser } from '../../store/slices/authSlice';
+import cookie from 'cookie';
 
 const Header = () => {
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    dispatch(removeUser());
+    const { email, token, id } = cookie.parse(document.cookie);
+    document.cookie = `email=${email}; max-age=-1;`;
+    document.cookie = `id=${id}; max-age=-1;`;
+    document.cookie = `token=${token}; max-age=-1;`;
     navigate(MainRoutes.WelcomePage);
   };
 
