@@ -48,7 +48,10 @@ const AuthPage = () => {
     <Navigate to={MainRoutes.WelcomePage} />
   ) : (
     <>
-      <AuthForm title="Registration" handleClick={handleAuth} />
+      <AuthForm
+        title={regType === Registration.LogIn ? 'Log In' : 'Sign Up'}
+        handleClick={handleAuth}
+      />
       <AuthType />
     </>
   );
