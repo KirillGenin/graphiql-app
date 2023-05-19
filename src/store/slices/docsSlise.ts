@@ -1,11 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { buildClientSchema, getIntrospectionQuery, GraphQLSchema } from 'graphql';
 
 interface IInitState {
+  isLoading: boolean;
+  schema: unknown;
+  error: string;
   isTopLvl: boolean;
   isQueryLvl: boolean;
 }
 
 const initialState: IInitState = {
+  isLoading: false,
+  schema: null,
+  error: '',
   isTopLvl: true,
   isQueryLvl: false,
 };
@@ -21,7 +28,49 @@ const docsSlice = createSlice({
       state.isQueryLvl = !state.isQueryLvl;
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchSchema.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchSchema.fulfilled, (state, action) => {
+        state.isLoading = true;
+        state.schema = action.payload;
+        state.error = '';
+      })
+      .addCase(fetchSchema.rejected, (state) => {
+        state.isLoading = true;
+        state.error = 'Impossible to fetch data from resource';
+      });
+  },
 });
+export const URL = 'https://rickandmortyapi.com/graphql';
+
+export const fetchSchema = createAsyncThunk<GraphQLSchema, string>(
+  'docs/fetchDocs',
+  async (URL, { rejectWithValue }) => {
+    const response = await fetch(URL, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: getIntrospectionQuery(),
+      }),
+    });
+
+    if (!response.ok) {
+      console.log('rejected');
+      return rejectWithValue('Impossible to fetch data from resource');
+    }
+
+    const json = await response.json();
+    const data = buildClientSchema(JSON.parse(JSON.stringify(json.data)));
+
+    return data;
+  }
+);
 
 export const { toggleIsTopLvl, toggleIsQueryLvl } = docsSlice.actions;
 
