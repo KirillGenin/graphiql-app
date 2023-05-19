@@ -1,23 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface IInitState {
-  isQuery: boolean;
+  isTopLvl: boolean;
+  isQueryLvl: boolean;
 }
 
 const initialState: IInitState = {
-  isQuery: true,
+  isTopLvl: true,
+  isQueryLvl: false,
 };
 
 const docsSlice = createSlice({
   name: 'docs',
   initialState,
   reducers: {
-    toggleIsQuery(state) {
-      state.isQuery = !state.isQuery;
+    toggleIsTopLvl(state) {
+      state.isTopLvl = !state.isTopLvl;
+    },
+    toggleIsQueryLvl(state) {
+      state.isQueryLvl = !state.isQueryLvl;
     },
   },
 });
 
-export const { toggleIsQuery } = docsSlice.actions;
+export const { toggleIsTopLvl, toggleIsQueryLvl } = docsSlice.actions;
 
 export default docsSlice.reducer;

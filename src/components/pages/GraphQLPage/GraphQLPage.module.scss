@@ -10,15 +10,24 @@
 }
 
 .documentation {
-  min-width: 20rem;
+  min-width: 18rem;
   display: flex;
   flex-direction: column;
 }
 
 .title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.title_text {
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .subtitle {
+  font-weight: 600;
 }
 
 .link {
