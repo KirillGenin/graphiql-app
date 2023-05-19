@@ -2,10 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MainRoutes } from '../../types/enums';
 import cookie from 'cookie';
-import { Button } from '@mantine/core';
 import { NavLink as NavLinkUi } from '@mantine/core';
 import { IconHome2, IconLogout, IconLogin, IconDatabaseSearch } from '@tabler/icons-react';
 import styles from './Header.module.css';
+import MainButton from '../common/Button';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -40,22 +40,12 @@ const Header = () => {
           icon={<IconDatabaseSearch size={'1.1rem'} />}
         />
       </nav>
-      <Button
+      <MainButton
         onClick={handleLogout}
+        title="Log out"
+        type="button"
         rightIcon={<IconLogout size={'1.2rem'} />}
-        variant="light"
-        color="dark"
-        radius="md"
-        bg="#ffffff"
-        w={'8rem'}
-        styles={{
-          root: {
-            ':hover': { backgroundColor: '#f3f0f0' },
-          },
-        }}
-      >
-        Log out
-      </Button>
+      />
     </header>
   );
 };
