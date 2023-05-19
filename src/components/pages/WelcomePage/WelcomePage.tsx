@@ -2,7 +2,7 @@ import React from 'react';
 import { MainRoutes } from '../../../types/enums';
 import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../../utils/hooks/useAuth';
-import styles from './WelcomePage.module.css';
+import styles from './WelcomePage.module.scss';
 import cookie from 'cookie';
 
 const WelcomePage = () => {

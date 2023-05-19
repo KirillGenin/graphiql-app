@@ -2,7 +2,7 @@ import React from 'react';
 import { Registration } from '../../../../types/enums';
 import { toggleRegType } from '../../../../store/slices/authSlice';
 import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
-import styles from '../AuthPage.module.css';
+import styles from '../AuthPage.module.scss';
 
 const AuthType = () => {
   const dispatch = useAppDispatch();

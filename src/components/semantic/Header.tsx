@@ -4,7 +4,7 @@ import { MainRoutes } from '../../types/enums';
 import cookie from 'cookie';
 import { NavLink as NavLinkUi } from '@mantine/core';
 import { IconHome2, IconLogout, IconLogin, IconDatabaseSearch } from '@tabler/icons-react';
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 import MainButton from '../common/Button';
 
 const Header = () => {

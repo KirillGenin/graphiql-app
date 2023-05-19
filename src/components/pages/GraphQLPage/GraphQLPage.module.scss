@@ -11,6 +11,23 @@
 
 .documentation {
   min-width: 20rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+}
+
+.subtitle {
+}
+
+.link {
+  color: chocolate;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .browser {
