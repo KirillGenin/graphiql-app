@@ -5,7 +5,7 @@ interface IButton {
   onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   title: string;
   type: 'submit' | 'button';
-  rightIcon: JSX.Element;
+  rightIcon?: JSX.Element;
 }
 
 const MainButton: FC<IButton> = ({ onClick, title, type, rightIcon }) => {

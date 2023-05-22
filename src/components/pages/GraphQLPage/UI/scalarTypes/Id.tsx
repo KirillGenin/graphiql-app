@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styles from '../../GraphQLPage.module.scss';
+import MainButton from '../../../../common/Button';
+import { TScalar } from './type';
 
-const Id = () => {
+const Id: FC<TScalar> = ({ callback, title }) => {
   return (
     <>
+      <MainButton title={title} type="button" onClick={callback} />
       <h4 className={styles.title}>ID</h4>
       <p className={styles.title_text}>
         {`The 'ID'; scalar type represents a unique identifier, often used to refetch an

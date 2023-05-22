@@ -30,9 +30,9 @@ const QueryLevel = () => {
           <div>
             <MainButton
               onClick={goToDocs}
-              title="Go back"
+              title="Docs"
               type="button"
-              rightIcon={<IconArrowLeft size={'1.5rem'} />}
+              rightIcon={<IconArrowLeft size={'1.2rem'} />}
             />
           </div>
           <h4 className={styles.title} onClick={goToDocs}>
