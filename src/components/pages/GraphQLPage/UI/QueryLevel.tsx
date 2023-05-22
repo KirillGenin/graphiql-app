@@ -12,15 +12,26 @@ import Episodes from './fields/Episodes';
 import EpisodesByIds from './fields/EpisodesByIds';
 import MainButton from '../../../common/Button';
 import { IconArrowLeft } from '@tabler/icons-react';
-import { toggleIsQueryLvl, toggleIsTopLvl } from '../../../../store/slices/docsSlise';
+import {
+  toggleIsIdLvl,
+  toggleIsQueryLvl,
+  toggleIsTopLvl,
+} from '../../../../store/slices/docsSlise';
+import Id from './scalarTypes/Id';
 
 const QueryLevel = () => {
   const dispatch = useAppDispatch();
   const isQueryLvl = useAppSelector((state) => state.docs.isQueryLvl);
+  const isIdLvl = useAppSelector((state) => state.docs.isIdLvl);
 
   const goToDocs = () => {
     dispatch(toggleIsTopLvl());
     dispatch(toggleIsQueryLvl());
+  };
+
+  const goToQueries = () => {
+    dispatch(toggleIsQueryLvl());
+    dispatch(toggleIsIdLvl());
   };
 
   return (
@@ -50,6 +61,8 @@ const QueryLevel = () => {
           <EpisodesByIds />
         </>
       )}
+      {isIdLvl && <Id title="Fields" callback={goToQueries} />}
+      {}
     </>
   );
 };
