@@ -19,6 +19,7 @@ const MainButton: FC<IButton> = ({ onClick, title, type, rightIcon }) => {
       bg="#ffffff"
       radius="md"
       w={'8rem'}
+      h={'2.25rem'}
       styles={{
         root: {
           ':hover': { backgroundColor: '#f3f0f0' },
