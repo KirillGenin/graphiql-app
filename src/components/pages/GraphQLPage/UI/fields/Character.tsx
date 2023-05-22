@@ -4,7 +4,7 @@ import { useAppDispatch } from '../../../../../store/hooks';
 import { toggleIsQueryLvl } from '../../../../../store/slices/docsSlise';
 import Arg from '../parts/Arg';
 
-const CharactersField = () => {
+const Character = () => {
   const dispatch = useAppDispatch();
 
   const clickHandler = () => {
@@ -14,18 +14,17 @@ const CharactersField = () => {
   return (
     <>
       <div>
-        <span>charachters</span>
-        <span>(</span>
-        <Arg name="page" type="Int" nonNull={true} />
-        <Arg name="filter" type="FilterCharacter" lastArg={true} />
+        <span>charachter</span>
+        <span>(&nbsp;</span>
+        <Arg name="id" type="ID" nonNull={true} lastArg={true} />
         <span>&nbsp;):&nbsp;</span>
         <span className={styles.link} onClick={clickHandler}>
-          Characters
+          Character
         </span>
       </div>
-      <p className={styles.title_text}>Get a list of characters selected by ids</p>
+      <p className={styles.title_text}>Get a specific character by ID</p>
     </>
   );
 };
 
-export default CharactersField;
+export default Character;

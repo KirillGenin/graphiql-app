@@ -3,7 +3,7 @@ import styles from '../../GraphQLPage.module.scss';
 import Arg from '../parts/Arg';
 import { useAppDispatch } from '../../../../../store/hooks';
 
-const Location = () => {
+const СharactersByIds = () => {
   const dispatch = useAppDispatch();
 
   const clickHandler = () => {};
@@ -11,17 +11,17 @@ const Location = () => {
   return (
     <>
       <div>
-        <span>location</span>
+        <span>charactersByIds</span>
         <span>(&nbsp;</span>
-        <Arg name="id" type="ID" nonNull={true} lastArg={true} />
+        <Arg name="ids" type="ID" nonNull={true} list={true} listNonNull={true} lastArg={true} />
         <span>&nbsp;):&nbsp;</span>
         <span className={styles.link} onClick={clickHandler}>
-          Location
+          [Character]
         </span>
       </div>
-      <p className={styles.title_text}>Get a specific locations by ID</p>
+      <p className={styles.title_text}>Get a list of characters selected by ids</p>
     </>
   );
 };
 
-export default Location;
+export default СharactersByIds;

@@ -6,7 +6,7 @@ import styles from './GraphQLPage.module.scss';
 import Documentation from './UI/Documentation';
 import Browser from './UI/Browser';
 import { URL, fetchSchema } from '../../../store/slices/docsSlise';
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import { useAppDispatch /*, useAppSelector*/ } from '../../../store/hooks';
 
 // type Field = {
 //   args: {
@@ -37,8 +37,8 @@ import { useAppDispatch, useAppSelector } from '../../../store/hooks';
 const GraphQLPage = () => {
   const { isAuth } = useAuth();
   const dispatch = useAppDispatch();
-  const data = useAppSelector((state) => state.docs.schema);
-  if (data) console.log(data);
+  // const data = useAppSelector((state) => state.docs.schema);
+  // if (data) console.log(data);
 
   useEffect(() => {
     dispatch(fetchSchema(URL));

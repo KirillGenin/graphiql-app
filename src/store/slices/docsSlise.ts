@@ -61,7 +61,6 @@ export const fetchSchema = createAsyncThunk<GraphQLSchema, string>(
     });
 
     if (!response.ok) {
-      console.log('rejected');
       return rejectWithValue('Impossible to fetch data from resource');
     }
 

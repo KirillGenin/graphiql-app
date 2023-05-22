@@ -24,11 +24,13 @@ const Arg = ({
     <>
       <br />
       <span className={styles.padding}>{name}: &nbsp;</span>
+      {list ? '[' : ''}
       <span className={styles.link} onClick={clickHandler}>
-        {`${list ? '[' : ''}${type}${nonNull ? '!' : ''}${list ? ']' : ''}${
-          listNonNull ? '!' : ''
-        }`}
+        {type}
       </span>
+      {nonNull ? '!' : ''}
+      {list ? ']' : ''}
+      {listNonNull ? '!' : ''}
       {lastArg && <br />}
     </>
   );

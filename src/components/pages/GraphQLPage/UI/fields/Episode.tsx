@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from '../../GraphQLPage.module.scss';
+import Arg from '../parts/Arg';
 import { useAppDispatch } from '../../../../../store/hooks';
 import { toggleIsQueryLvl } from '../../../../../store/slices/docsSlise';
-import Arg from '../parts/Arg';
 
-const CharacterField = () => {
+const Episode = () => {
   const dispatch = useAppDispatch();
 
   const clickHandler = () => {
@@ -14,17 +14,17 @@ const CharacterField = () => {
   return (
     <>
       <div>
-        <span>charachter</span>
+        <span>episode</span>
         <span>(&nbsp;</span>
         <Arg name="id" type="ID" nonNull={true} lastArg={true} />
         <span>&nbsp;):&nbsp;</span>
         <span className={styles.link} onClick={clickHandler}>
-          Character
+          Episode
         </span>
       </div>
-      <p className={styles.title_text}>Get a specific character by ID</p>
+      <p className={styles.title_text}>Get a specific episode by ID</p>
     </>
   );
 };
 
-export default CharacterField;
+export default Episode;
