@@ -6,11 +6,11 @@ import { useAppSelector } from '../../../../../store/hooks';
 import { IconArrowLeft } from '@tabler/icons-react';
 
 const Id: FC<TScalar> = ({ callback, title }) => {
-  const isIdLvl = useAppSelector((s) => s.docs.isIdLvl);
+  const isVisible = useAppSelector((s) => s.docs.isIdLvl);
 
   return (
     <>
-      {isIdLvl && (
+      {isVisible && (
         <>
           <MainButton
             title={title}

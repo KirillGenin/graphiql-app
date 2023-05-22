@@ -9,7 +9,7 @@ const СharactersByIds = () => {
 
   const goToId = () => {
     dispatch(toggleIsQueryLvl());
-    dispatch(toggleIsIdLvl());
+    dispatch(toggleIsIdLvl(true));
   };
 
   const clickHandler = () => {};

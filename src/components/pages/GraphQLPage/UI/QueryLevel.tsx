@@ -14,15 +14,18 @@ import MainButton from '../../../common/Button';
 import { IconArrowLeft } from '@tabler/icons-react';
 import {
   toggleIsIdLvl,
+  toggleIsIntLvl,
   toggleIsQueryLvl,
   toggleIsTopLvl,
 } from '../../../../store/slices/docsSlise';
 import Id from './scalarTypes/Id';
+import Int from './scalarTypes/Int';
 
 const QueryLevel = () => {
   const dispatch = useAppDispatch();
   const isQueryLvl = useAppSelector((state) => state.docs.isQueryLvl);
   const isIdLvl = useAppSelector((state) => state.docs.isIdLvl);
+  const isIntLvl = useAppSelector((state) => state.docs.isIntLvl);
 
   const goToDocs = () => {
     dispatch(toggleIsTopLvl());
@@ -31,7 +34,8 @@ const QueryLevel = () => {
 
   const goToQueries = () => {
     dispatch(toggleIsQueryLvl());
-    dispatch(toggleIsIdLvl());
+    dispatch(toggleIsIdLvl(false));
+    dispatch(toggleIsIntLvl(false));
   };
 
   return (
@@ -62,7 +66,7 @@ const QueryLevel = () => {
         </>
       )}
       {isIdLvl && <Id title="Fields" callback={goToQueries} />}
-      {}
+      {isIntLvl && <Int title="Fields" callback={goToQueries} />}
     </>
   );
 };

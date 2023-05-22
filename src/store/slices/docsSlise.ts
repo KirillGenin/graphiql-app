@@ -8,6 +8,8 @@ interface IInitState {
   isTopLvl: boolean;
   isQueryLvl: boolean;
   isIdLvl: boolean;
+  isIntLvl: boolean;
+  isStringLvl: boolean;
 }
 
 const initialState: IInitState = {
@@ -17,6 +19,8 @@ const initialState: IInitState = {
   isTopLvl: true,
   isQueryLvl: false,
   isIdLvl: false,
+  isIntLvl: false,
+  isStringLvl: false,
 };
 
 const docsSlice = createSlice({
@@ -29,8 +33,14 @@ const docsSlice = createSlice({
     toggleIsQueryLvl(state) {
       state.isQueryLvl = !state.isQueryLvl;
     },
-    toggleIsIdLvl(state) {
-      state.isIdLvl = !state.isIdLvl;
+    toggleIsIdLvl(state, action) {
+      state.isIdLvl = action.payload;
+    },
+    toggleIsIntLvl(state, action) {
+      state.isIntLvl = action.payload;
+    },
+    toggleIsString(state, action) {
+      state.isStringLvl = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -76,6 +86,7 @@ export const fetchSchema = createAsyncThunk<GraphQLSchema, string>(
   }
 );
 
-export const { toggleIsTopLvl, toggleIsQueryLvl, toggleIsIdLvl } = docsSlice.actions;
+export const { toggleIsTopLvl, toggleIsQueryLvl, toggleIsIdLvl, toggleIsIntLvl, toggleIsString } =
+  docsSlice.actions;
 
 export default docsSlice.reducer;
