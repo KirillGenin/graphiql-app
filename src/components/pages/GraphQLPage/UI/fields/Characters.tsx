@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from '../../GraphQLPage.module.scss';
 import Arg from '../parts/Arg';
-import { useAppDispatch } from '../../../../../store/hooks';
-import { toggleIsIntLvl, toggleIsQueryLvl } from '../../../../../store/slices/docsSlise';
+import { useAppDispatch } from '../../../../../app/hooks';
+import { toggleIsIntLvl, toggleIsQueryLvl } from '../../../../../app/slices/docsSlise';
 
 const Characters = () => {
   const dispatch = useAppDispatch();

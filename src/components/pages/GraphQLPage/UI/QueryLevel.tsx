@@ -1,8 +1,8 @@
 import React from 'react';
-import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
 import Character from './fields/Character';
 import Characters from './fields/Characters';
-import СharactersByIds from './fields/СharactersByIds';
+import СharactersByIds from './fields/CharactersByIds';
 import styles from '../GraphQLPage.module.scss';
 import Location from './fields/Location';
 import Locations from './fields/Locations';
@@ -17,7 +17,7 @@ import {
   toggleIsIntLvl,
   toggleIsQueryLvl,
   toggleIsTopLvl,
-} from '../../../../store/slices/docsSlise';
+} from '../../../../app/slices/docsSlise';
 import Id from './scalarTypes/Id';
 import Int from './scalarTypes/Int';
 

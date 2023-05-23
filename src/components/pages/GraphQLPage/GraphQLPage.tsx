@@ -5,8 +5,8 @@ import { useAuth } from '../../../utils/hooks/useAuth';
 import styles from './GraphQLPage.module.scss';
 import Documentation from './UI/Documentation';
 import Browser from './UI/Browser';
-import { URL, fetchSchema } from '../../../store/slices/docsSlise';
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import { URL, fetchSchema } from '../../../app/slices/docsSlise';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 
 type Field = {
   args: [

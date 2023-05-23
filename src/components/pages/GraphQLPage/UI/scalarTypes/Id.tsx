@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import styles from '../../GraphQLPage.module.scss';
 import MainButton from '../../../../common/Button';
 import { TScalar } from './type';
-import { useAppSelector } from '../../../../../store/hooks';
+import { useAppSelector } from '../../../../../app/hooks';
 import { IconArrowLeft } from '@tabler/icons-react';
 
 const Id: FC<TScalar> = ({ callback, title }) => {

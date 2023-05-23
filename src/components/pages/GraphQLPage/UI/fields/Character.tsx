@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../../GraphQLPage.module.scss';
-import { useAppDispatch } from '../../../../../store/hooks';
-import { toggleIsQueryLvl, toggleIsIdLvl } from '../../../../../store/slices/docsSlise';
+import { useAppDispatch } from '../../../../../app/hooks';
+import { toggleIsQueryLvl, toggleIsIdLvl } from '../../../../../app/slices/docsSlise';
 import Arg from '../parts/Arg';
 
 const Character = () => {

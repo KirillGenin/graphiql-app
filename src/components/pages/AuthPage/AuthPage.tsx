@@ -3,7 +3,7 @@ import AuthForm from '../../auth/AuthForm';
 import { Navigate, useNavigate } from 'react-router';
 import { MainRoutes, Registration } from '../../../types/enums';
 import { useAuth } from '../../../utils/hooks/useAuth';
-import { useAppSelector } from '../../../store/hooks';
+import { useAppSelector } from '../../../app/hooks';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, User } from 'firebase/auth';
 import { auth } from '../../../utils/auth/firebase';
 import AuthType from './UI/AuthType';

@@ -3,7 +3,7 @@ import styles from '../../GraphQLPage.module.scss';
 import MainButton from '../../../../common/Button';
 import { TScalar } from './type';
 import { IconArrowLeft } from '@tabler/icons-react';
-import { useAppSelector } from '../../../../../store/hooks';
+import { useAppSelector } from '../../../../../app/hooks';
 
 const String: FC<TScalar> = ({ callback, title }) => {
   const isVisible = useAppSelector((s) => s.docs.isStringLvl);
