@@ -13,19 +13,25 @@ import EpisodesByIds from './fields/EpisodesByIds';
 import MainButton from '../../../common/Button';
 import { IconArrowLeft } from '@tabler/icons-react';
 import {
+  toggleIsCaracterLvl,
   toggleIsIdLvl,
   toggleIsIntLvl,
   toggleIsQueryLvl,
+  toggleIsStringLvl,
   toggleIsTopLvl,
 } from '../../../../app/slices/docsSlise';
 import Id from './scalarTypes/Id';
 import Int from './scalarTypes/Int';
+import CaracterResp from './response/CaracterResp';
+import String from './scalarTypes/String';
 
 const QueryLevel = () => {
   const dispatch = useAppDispatch();
   const isQueryLvl = useAppSelector((state) => state.docs.isQueryLvl);
   const isIdLvl = useAppSelector((state) => state.docs.isIdLvl);
   const isIntLvl = useAppSelector((state) => state.docs.isIntLvl);
+  const isStringLvl = useAppSelector((state) => state.docs.isStringLvl);
+  const isCaracterLvl = useAppSelector((state) => state.docs.isCaracterLvl);
 
   const goToDocs = () => {
     dispatch(toggleIsTopLvl());
@@ -36,6 +42,8 @@ const QueryLevel = () => {
     dispatch(toggleIsQueryLvl());
     dispatch(toggleIsIdLvl(false));
     dispatch(toggleIsIntLvl(false));
+    dispatch(toggleIsStringLvl(false));
+    dispatch(toggleIsCaracterLvl(false));
   };
 
   return (
@@ -67,6 +75,8 @@ const QueryLevel = () => {
       )}
       {isIdLvl && <Id title="Fields" callback={goToQueries} />}
       {isIntLvl && <Int title="Fields" callback={goToQueries} />}
+      {isStringLvl && <String title="Fields" callback={goToQueries} />}
+      {isCaracterLvl && <CaracterResp title="Fields" callback={goToQueries} />}
     </>
   );
 };

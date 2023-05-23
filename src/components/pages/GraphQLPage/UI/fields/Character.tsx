@@ -1,7 +1,11 @@
 import React from 'react';
 import styles from '../../GraphQLPage.module.scss';
 import { useAppDispatch } from '../../../../../app/hooks';
-import { toggleIsQueryLvl, toggleIsIdLvl } from '../../../../../app/slices/docsSlise';
+import {
+  toggleIsQueryLvl,
+  toggleIsIdLvl,
+  toggleIsCaracterLvl,
+} from '../../../../../app/slices/docsSlise';
 import Arg from '../parts/Arg';
 
 const Character = () => {
@@ -14,6 +18,7 @@ const Character = () => {
 
   const clickHandler = () => {
     dispatch(toggleIsQueryLvl());
+    dispatch(toggleIsCaracterLvl(true));
   };
 
   return (
