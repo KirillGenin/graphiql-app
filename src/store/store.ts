@@ -1,10 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from './slices/authSlice';
+import docsSlise from './slices/docsSlise';
 
 export const store = configureStore({
   reducer: {
     user: userReducer,
+    docs: docsSlise,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export type AppDispatch = typeof store.dispatch;

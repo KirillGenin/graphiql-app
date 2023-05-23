@@ -7,7 +7,7 @@ import { useAppSelector } from '../../../store/hooks';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, User } from 'firebase/auth';
 import { auth } from '../../../utils/auth/firebase';
 import AuthType from './UI/AuthType';
-import styles from './AuthPage.module.css';
+import styles from './AuthPage.module.scss';
 
 export interface NewUser extends User {
   accessToken: string;
@@ -23,7 +23,6 @@ const AuthPage = () => {
 
   const handleAuth = (e: React.FormEvent, email: string, password: string) => {
     e.preventDefault();
-    console.log('click');
 
     if (regType === Registration.SignUp) {
       createUserWithEmailAndPassword(auth, email, password)

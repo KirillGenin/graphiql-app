@@ -1,7 +1,8 @@
 import React, { FC, useState } from 'react';
-import { Input, Button } from '@mantine/core';
+import { Input } from '@mantine/core';
 import { IconLogin } from '@tabler/icons-react';
-import styles from './AuthForm.module.css';
+import styles from './AuthForm.module.scss';
+import MainButton from '../common/Button';
 
 interface IFormProps {
   title: string;
@@ -35,24 +36,13 @@ const AuthForm: FC<IFormProps> = ({ title, handleClick }) => {
         placeholder="Enter your password"
         onChange={(e) => setPassword(e.target.value)}
         styles={inputStyles}
-      />{' '}
-      <Button
-        type="submit"
+      />
+      <MainButton
         onClick={(e) => handleClick(e, email, password)}
+        title={title}
+        type="submit"
         rightIcon={<IconLogin size={'1.2rem'} />}
-        variant="light"
-        color="dark"
-        bg="#ffffff"
-        radius="md"
-        w={'8rem'}
-        styles={{
-          root: {
-            ':hover': { backgroundColor: '#f3f0f0' },
-          },
-        }}
-      >
-        {title}
-      </Button>
+      />
     </form>
   );
 };
