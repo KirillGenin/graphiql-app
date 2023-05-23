@@ -21,8 +21,8 @@ const Episodes = () => {
       <div>
         <span>episodes</span>
         <span>(&nbsp;</span>
-        <Arg name="page" type="Int" />
-        <Arg name="filter" type="FilterEpisodes" lastArg={true} callback={goToInt} />
+        <Arg name="page" type="Int" callback={goToInt} />
+        <Arg name="filter" type="FilterEpisodes" lastArg={true} />
         <span>&nbsp;):&nbsp;</span>
         <span className={styles.link} onClick={clickHandler}>
           Episodes

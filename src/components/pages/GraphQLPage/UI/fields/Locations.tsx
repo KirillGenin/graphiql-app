@@ -12,15 +12,17 @@ const Locations = () => {
     dispatch(toggleIsIntLvl(true));
   };
 
-  const clickHandler = () => {};
+  const clickHandler = () => {
+    dispatch(toggleIsQueryLvl());
+  };
 
   return (
     <>
       <div>
         <span>locations</span>
         <span>(&nbsp;</span>
-        <Arg name="page" type="Int" />
-        <Arg name="filter" type="FilterLocation" lastArg={true} callback={goToInt} />
+        <Arg name="page" type="Int" callback={goToInt} />
+        <Arg name="filter" type="FilterLocation" lastArg={true} />
         <span>&nbsp;):&nbsp;</span>
         <span className={styles.link} onClick={clickHandler}>
           Locations

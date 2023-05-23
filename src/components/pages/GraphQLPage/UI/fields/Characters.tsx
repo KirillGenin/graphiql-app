@@ -21,7 +21,7 @@ const Characters = () => {
       <div>
         <span>charachters</span>
         <span>(</span>
-        <Arg name="page" type="Int" nonNull={true} callback={goToInt} />
+        <Arg name="page" type="Int" callback={goToInt} />
         <Arg name="filter" type="FilterCharacter" lastArg={true} />
         <span>&nbsp;):&nbsp;</span>
         <span className={styles.link} onClick={clickHandler}>
