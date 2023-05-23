@@ -1,7 +1,11 @@
 import React from 'react';
 import styles from '../../GraphQLPage.module.scss';
 import Arg from '../parts/Arg';
-import { toggleIsQueryLvl, toggleIsIdLvl } from '../../../../../app/slices/docsSlise';
+import {
+  toggleIsQueryLvl,
+  toggleIsIdLvl,
+  toggleIsLocationLvl,
+} from '../../../../../app/slices/docsSlise';
 import { useAppDispatch } from '../../../../../app/hooks';
 
 const LocationsByIds = () => {
@@ -12,7 +16,10 @@ const LocationsByIds = () => {
     dispatch(toggleIsIdLvl(true));
   };
 
-  const clickHandler = () => {};
+  const clickHandler = () => {
+    dispatch(toggleIsQueryLvl());
+    dispatch(toggleIsLocationLvl(true));
+  };
 
   return (
     <>

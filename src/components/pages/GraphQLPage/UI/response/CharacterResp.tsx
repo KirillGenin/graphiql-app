@@ -36,6 +36,7 @@ const CaracterResp: FC<TScalar> = ({ callback, title }) => {
             rightIcon={<IconArrowLeft size={'1.2rem'} />}
           />
           <h4 className={styles.title}>Character</h4>
+
           <Arg name="id" type="ID" callback={goToId} newLine={false} />
           <p className={styles.title_text}>{`The id of the character.`}</p>
 

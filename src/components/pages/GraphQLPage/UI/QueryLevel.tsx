@@ -20,12 +20,20 @@ import {
   toggleIsQueryLvl,
   toggleIsStringLvl,
   toggleIsTopLvl,
+  toggleIsLocationLvl,
+  toggleIsLocationsLvl,
+  toggleIsEpisodeLvl,
+  toggleIsEpisodesLvl,
 } from '../../../../app/slices/docsSlise';
 import Id from './scalarTypes/Id';
 import Int from './scalarTypes/Int';
-import CaracterResp from './response/CharacterResp';
 import String from './scalarTypes/String';
+import CaracterResp from './response/CharacterResp';
 import CaractersResp from './response/CharactersResp';
+import LocationResp from './response/LocationResp';
+import LocationsResp from './response/LocationsResp';
+import EpisodeResp from './response/EpisodeResp';
+import EpisodesResp from './response/EpisodesResp';
 
 const QueryLevel = () => {
   const dispatch = useAppDispatch();
@@ -35,6 +43,10 @@ const QueryLevel = () => {
   const isStringLvl = useAppSelector((state) => state.docs.isStringLvl);
   const isCharacterLvl = useAppSelector((state) => state.docs.isCharacterLvl);
   const isCharactersLvl = useAppSelector((state) => state.docs.isCharactersLvl);
+  const isLocationLvl = useAppSelector((state) => state.docs.isLocationLvl);
+  const isLocationsLvl = useAppSelector((state) => state.docs.isLocationsLvl);
+  const isEpisodeLvl = useAppSelector((state) => state.docs.isEpisodeLvl);
+  const isEpisodesLvl = useAppSelector((state) => state.docs.isEpisodesLvl);
 
   const goToDocs = () => {
     dispatch(toggleIsTopLvl());
@@ -48,6 +60,10 @@ const QueryLevel = () => {
     dispatch(toggleIsStringLvl(false));
     dispatch(toggleIsCharacterLvl(false));
     dispatch(toggleIsCharactersLvl(false));
+    dispatch(toggleIsLocationLvl(false));
+    dispatch(toggleIsLocationsLvl(false));
+    dispatch(toggleIsEpisodeLvl(false));
+    dispatch(toggleIsEpisodesLvl(false));
   };
 
   return (
@@ -77,11 +93,16 @@ const QueryLevel = () => {
           <EpisodesByIds />
         </>
       )}
+
       {isIdLvl && <Id title="Fields" callback={goToQueries} />}
       {isIntLvl && <Int title="Fields" callback={goToQueries} />}
       {isStringLvl && <String title="Fields" callback={goToQueries} />}
       {isCharacterLvl && <CaracterResp title="Fields" callback={goToQueries} />}
       {isCharactersLvl && <CaractersResp title="Fields" callback={goToQueries} />}
+      {isLocationLvl && <LocationResp title="Fields" callback={goToQueries} />}
+      {isLocationsLvl && <LocationsResp title="Fields" callback={goToQueries} />}
+      {isEpisodeLvl && <EpisodeResp title="Fields" callback={goToQueries} />}
+      {isEpisodesLvl && <EpisodesResp title="Fields" callback={goToQueries} />}
     </>
   );
 };
