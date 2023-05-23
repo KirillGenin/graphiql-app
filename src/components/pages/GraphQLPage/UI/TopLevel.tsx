@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../GraphQLPage.module.scss';
-import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
-import { toggleIsTopLvl, toggleIsQueryLvl } from '../../../../store/slices/docsSlise';
+import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
+import { toggleIsTopLvl, toggleIsQueryLvl } from '../../../../app/slices/docsSlise';
 
 const TopLevel = () => {
   const dispatch = useAppDispatch();
