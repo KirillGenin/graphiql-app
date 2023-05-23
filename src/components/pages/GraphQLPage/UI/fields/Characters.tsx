@@ -24,7 +24,7 @@ const Characters = () => {
   return (
     <>
       <div>
-        <span>charachters</span>
+        <span>characters</span>
         <span>(</span>
         <Arg name="page" type="Int" callback={goToInt} />
         <Arg name="filter" type="FilterCharacter" lastArg={true} />

@@ -7,7 +7,9 @@ import { TScalar } from '../scalarTypes/type';
 import styles from '../../GraphQLPage.module.scss';
 import {
   toggleIsCharacterLvl,
+  toggleIsEpisodeLvl,
   toggleIsIdLvl,
+  toggleIsLocationLvl,
   toggleIsStringLvl,
 } from '../../../../../app/slices/docsSlise';
 
@@ -23,6 +25,16 @@ const CaracterResp: FC<TScalar> = ({ callback, title }) => {
   const goToString = () => {
     dispatch(toggleIsCharacterLvl(false));
     dispatch(toggleIsStringLvl(true));
+  };
+
+  const goToLocation = () => {
+    dispatch(toggleIsCharacterLvl(false));
+    dispatch(toggleIsLocationLvl(true));
+  };
+
+  const goToEpisode = () => {
+    dispatch(toggleIsCharacterLvl(false));
+    dispatch(toggleIsEpisodeLvl(true));
   };
 
   return (
@@ -59,17 +71,24 @@ const CaracterResp: FC<TScalar> = ({ callback, title }) => {
             className={styles.title_text}
           >{`The gender of the character ('Female', 'Male', 'Genderless' or 'unknown').`}</p>
 
-          <Arg name="origin" type="Location" newLine={false} />
+          <Arg name="origin" type="Location" callback={goToLocation} newLine={false} />
           <p className={styles.title_text}>{`The character's origin location`}</p>
 
-          <Arg name="location" type="Location" newLine={false} />
+          <Arg name="location" type="Location" callback={goToLocation} newLine={false} />
           <p className={styles.title_text}>{`The character's last known location`}</p>
 
           <Arg name="image" type="String" callback={goToString} newLine={false} />
           <p className={styles.title_text}>{`Link to the character's image.
 All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.`}</p>
 
-          <Arg name="episode" type="Episode" newLine={false} />
+          <Arg
+            name="episode"
+            type="Episode"
+            list={true}
+            listNonNull={true}
+            callback={goToEpisode}
+            newLine={false}
+          />
           <p className={styles.title_text}>{`Episodes in which this character appeared.`}</p>
 
           <Arg name="created" type="String" callback={goToString} newLine={false} />

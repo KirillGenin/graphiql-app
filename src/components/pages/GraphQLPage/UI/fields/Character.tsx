@@ -25,7 +25,7 @@ const Character = () => {
     <>
       <>
         <div>
-          <span>charachter</span>
+          <span>character</span>
           <span>(&nbsp;</span>
           <Arg name="id" type="ID" nonNull={true} lastArg={true} callback={goToId} />
           <span>&nbsp;):&nbsp;</span>

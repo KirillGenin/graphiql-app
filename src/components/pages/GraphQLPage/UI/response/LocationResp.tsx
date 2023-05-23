@@ -26,6 +26,11 @@ const LocationResp: FC<TScalar> = ({ callback, title }) => {
     dispatch(toggleIsStringLvl(true));
   };
 
+  const goToCharacter = () => {
+    dispatch(toggleIsLocationLvl(false));
+    dispatch(toggleIsCharacterLvl(true));
+  };
+
   return (
     <>
       {isVisible && (
@@ -52,8 +57,8 @@ const LocationResp: FC<TScalar> = ({ callback, title }) => {
 
           <Arg
             name="residents"
-            type="String"
-            callback={goToString}
+            type="Character"
+            callback={goToCharacter}
             list={true}
             listNonNull={true}
             newLine={false}
@@ -62,7 +67,7 @@ const LocationResp: FC<TScalar> = ({ callback, title }) => {
             className={styles.title_text}
           >{`List of characters who have been last seen in the location.`}</p>
 
-          <Arg name="created" type="Character" list={true} newLine={false} callback={() => {}} />
+          <Arg name="created" type="String" newLine={false} callback={goToString} />
           <p
             className={styles.title_text}
           >{`Time at which the location was created in the database.`}</p>
