@@ -4,7 +4,7 @@ import { useAppDispatch } from '../../../../../app/hooks';
 import {
   toggleIsQueryLvl,
   toggleIsIdLvl,
-  toggleIsCaracterLvl,
+  toggleIsCharacterLvl,
 } from '../../../../../app/slices/docsSlise';
 import Arg from '../parts/Arg';
 
@@ -18,7 +18,7 @@ const Character = () => {
 
   const clickHandler = () => {
     dispatch(toggleIsQueryLvl());
-    dispatch(toggleIsCaracterLvl(true));
+    dispatch(toggleIsCharacterLvl(true));
   };
 
   return (

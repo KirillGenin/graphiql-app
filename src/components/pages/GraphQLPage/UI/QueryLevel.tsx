@@ -13,7 +13,8 @@ import EpisodesByIds from './fields/EpisodesByIds';
 import MainButton from '../../../common/Button';
 import { IconArrowLeft } from '@tabler/icons-react';
 import {
-  toggleIsCaracterLvl,
+  toggleIsCharacterLvl,
+  toggleIsCharactersLvl,
   toggleIsIdLvl,
   toggleIsIntLvl,
   toggleIsQueryLvl,
@@ -22,8 +23,9 @@ import {
 } from '../../../../app/slices/docsSlise';
 import Id from './scalarTypes/Id';
 import Int from './scalarTypes/Int';
-import CaracterResp from './response/CaracterResp';
+import CaracterResp from './response/CharacterResp';
 import String from './scalarTypes/String';
+import CaractersResp from './response/CharactersResp';
 
 const QueryLevel = () => {
   const dispatch = useAppDispatch();
@@ -31,7 +33,8 @@ const QueryLevel = () => {
   const isIdLvl = useAppSelector((state) => state.docs.isIdLvl);
   const isIntLvl = useAppSelector((state) => state.docs.isIntLvl);
   const isStringLvl = useAppSelector((state) => state.docs.isStringLvl);
-  const isCaracterLvl = useAppSelector((state) => state.docs.isCaracterLvl);
+  const isCharacterLvl = useAppSelector((state) => state.docs.isCharacterLvl);
+  const isCharactersLvl = useAppSelector((state) => state.docs.isCharactersLvl);
 
   const goToDocs = () => {
     dispatch(toggleIsTopLvl());
@@ -43,7 +46,8 @@ const QueryLevel = () => {
     dispatch(toggleIsIdLvl(false));
     dispatch(toggleIsIntLvl(false));
     dispatch(toggleIsStringLvl(false));
-    dispatch(toggleIsCaracterLvl(false));
+    dispatch(toggleIsCharacterLvl(false));
+    dispatch(toggleIsCharactersLvl(false));
   };
 
   return (
@@ -76,7 +80,8 @@ const QueryLevel = () => {
       {isIdLvl && <Id title="Fields" callback={goToQueries} />}
       {isIntLvl && <Int title="Fields" callback={goToQueries} />}
       {isStringLvl && <String title="Fields" callback={goToQueries} />}
-      {isCaracterLvl && <CaracterResp title="Fields" callback={goToQueries} />}
+      {isCharacterLvl && <CaracterResp title="Fields" callback={goToQueries} />}
+      {isCharactersLvl && <CaractersResp title="Fields" callback={goToQueries} />}
     </>
   );
 };

@@ -10,7 +10,8 @@ interface IInitState {
   isIdLvl: boolean;
   isIntLvl: boolean;
   isStringLvl: boolean;
-  isCaracterLvl: boolean;
+  isCharacterLvl: boolean;
+  isCharactersLvl: boolean;
 }
 
 const initialState: IInitState = {
@@ -22,7 +23,8 @@ const initialState: IInitState = {
   isIdLvl: false,
   isIntLvl: false,
   isStringLvl: false,
-  isCaracterLvl: false,
+  isCharacterLvl: false,
+  isCharactersLvl: false,
 };
 
 const docsSlice = createSlice({
@@ -45,8 +47,11 @@ const docsSlice = createSlice({
     toggleIsStringLvl(state, action) {
       state.isStringLvl = action.payload;
     },
-    toggleIsCaracterLvl(state, action) {
-      state.isCaracterLvl = action.payload;
+    toggleIsCharacterLvl(state, action) {
+      state.isCharacterLvl = action.payload;
+    },
+    toggleIsCharactersLvl(state, action) {
+      state.isCharactersLvl = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -98,7 +103,8 @@ export const {
   toggleIsIdLvl,
   toggleIsIntLvl,
   toggleIsStringLvl,
-  toggleIsCaracterLvl,
+  toggleIsCharacterLvl,
+  toggleIsCharactersLvl,
 } = docsSlice.actions;
 
 export default docsSlice.reducer;
