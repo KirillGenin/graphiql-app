@@ -21,8 +21,7 @@ const Arg = ({
   callback,
 }: IArg) => {
   return (
-    <>
-      <br />
+    <p>
       <span className={styles.padding}>{name}: &nbsp;</span>
       {list ? '[' : ''}
       <span className={styles.link} onClick={callback}>
@@ -32,7 +31,7 @@ const Arg = ({
       {list ? ']' : ''}
       {listNonNull ? '!' : ''}
       {lastArg && <br />}
-    </>
+    </p>
   );
 };
 

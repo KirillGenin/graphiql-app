@@ -2,7 +2,11 @@ import React from 'react';
 import styles from '../../GraphQLPage.module.scss';
 import Arg from '../parts/Arg';
 import { useAppDispatch } from '../../../../../app/hooks';
-import { toggleIsIdLvl, toggleIsQueryLvl } from '../../../../../app/slices/docsSlise';
+import {
+  toggleIsEpisodeLvl,
+  toggleIsIdLvl,
+  toggleIsQueryLvl,
+} from '../../../../../app/slices/docsSlise';
 
 const EpisodesByIds = () => {
   const dispatch = useAppDispatch();
@@ -14,6 +18,7 @@ const EpisodesByIds = () => {
 
   const clickHandler = () => {
     dispatch(toggleIsQueryLvl());
+    dispatch(toggleIsEpisodeLvl(true));
   };
 
   return (
@@ -30,10 +35,11 @@ const EpisodesByIds = () => {
           lastArg={true}
           callback={goToId}
         />
-        <span>&nbsp;):&nbsp;</span>
+        <span>&nbsp;):&nbsp;[</span>
         <span className={styles.link} onClick={clickHandler}>
-          [Episode]
+          Episode
         </span>
+        <span>]</span>
       </div>
       <p className={styles.title_text}>Get a list of episodes selected by ids</p>
     </>

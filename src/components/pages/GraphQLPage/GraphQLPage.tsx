@@ -56,10 +56,7 @@ const GraphQLPage = () => {
   const { isAuth } = useAuth();
   const dispatch = useAppDispatch();
   const data = useAppSelector((state) => state.docs.schema) as GraphQLShema;
-  if (data) {
-    // console.log(data._queryType._fields.characters.args.map((e) => e.name));
-    console.log(data._queryType._fields.characters.description);
-  }
+  console.log(data);
 
   useEffect(() => {
     dispatch(fetchSchema(URL));

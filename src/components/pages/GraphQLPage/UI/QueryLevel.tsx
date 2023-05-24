@@ -13,19 +13,37 @@ import EpisodesByIds from './fields/EpisodesByIds';
 import MainButton from '../../../common/Button';
 import { IconArrowLeft } from '@tabler/icons-react';
 import {
+  toggleIsCharacterLvl,
+  toggleIsCharactersLvl,
   toggleIsIdLvl,
   toggleIsIntLvl,
   toggleIsQueryLvl,
+  toggleIsStringLvl,
   toggleIsTopLvl,
+  toggleIsLocationLvl,
+  toggleIsLocationsLvl,
+  toggleIsEpisodeLvl,
+  toggleIsEpisodesLvl,
+  toggleIsCharacterFilter,
+  toggleIsLocationFilter,
+  toggleIsEpisodeFilter,
 } from '../../../../app/slices/docsSlise';
+import CharacterResp from './response/CharacterResp';
+import CaractersResp from './response/CharactersResp';
+import LocationResp from './response/LocationResp';
+import LocationsResp from './response/LocationsResp';
+import EpisodeResp from './response/EpisodeResp';
+import EpisodesResp from './response/EpisodesResp';
 import Id from './scalarTypes/Id';
 import Int from './scalarTypes/Int';
+import FilterEpisodes from './filters/FilterEpisodes';
+import FilterCharacter from './filters/FilterCharacter';
+import FilterLocation from './filters/FilterLocation';
 
 const QueryLevel = () => {
   const dispatch = useAppDispatch();
   const isQueryLvl = useAppSelector((state) => state.docs.isQueryLvl);
-  const isIdLvl = useAppSelector((state) => state.docs.isIdLvl);
-  const isIntLvl = useAppSelector((state) => state.docs.isIntLvl);
+  const isQuerySubLvl = useAppSelector((state) => state.docs.isQuerySubLvl);
 
   const goToDocs = () => {
     dispatch(toggleIsTopLvl());
@@ -36,6 +54,16 @@ const QueryLevel = () => {
     dispatch(toggleIsQueryLvl());
     dispatch(toggleIsIdLvl(false));
     dispatch(toggleIsIntLvl(false));
+    dispatch(toggleIsStringLvl(false));
+    dispatch(toggleIsCharacterLvl(false));
+    dispatch(toggleIsCharactersLvl(false));
+    dispatch(toggleIsLocationLvl(false));
+    dispatch(toggleIsLocationsLvl(false));
+    dispatch(toggleIsEpisodeLvl(false));
+    dispatch(toggleIsEpisodesLvl(false));
+    dispatch(toggleIsCharacterFilter(false));
+    dispatch(toggleIsLocationFilter(false));
+    dispatch(toggleIsEpisodeFilter(false));
   };
 
   return (
@@ -65,8 +93,18 @@ const QueryLevel = () => {
           <EpisodesByIds />
         </>
       )}
-      {isIdLvl && <Id title="Fields" callback={goToQueries} />}
-      {isIntLvl && <Int title="Fields" callback={goToQueries} />}
+
+      {isQuerySubLvl && <Id title="Fields" callback={goToQueries} />}
+      {isQuerySubLvl && <Int title="Fields" callback={goToQueries} />}
+      <CharacterResp title="Fields" callback={goToQueries} />
+      <CaractersResp title="Fields" callback={goToQueries} />
+      <LocationResp title="Fields" callback={goToQueries} />
+      <LocationsResp title="Fields" callback={goToQueries} />
+      <EpisodeResp title="Fields" callback={goToQueries} />
+      <EpisodesResp title="Fields" callback={goToQueries} />
+      <FilterCharacter title="Fields" callback={goToQueries} />
+      <FilterLocation title="Fields" callback={goToQueries} />
+      <FilterEpisodes title="Fields" callback={goToQueries} />
     </>
   );
 };
