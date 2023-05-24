@@ -24,6 +24,9 @@ import {
   toggleIsLocationsLvl,
   toggleIsEpisodeLvl,
   toggleIsEpisodesLvl,
+  toggleIsCharacterFilter,
+  toggleIsLocationFilter,
+  toggleIsEpisodeFilter,
 } from '../../../../app/slices/docsSlise';
 import CharacterResp from './response/CharacterResp';
 import CaractersResp from './response/CharactersResp';
@@ -33,6 +36,9 @@ import EpisodeResp from './response/EpisodeResp';
 import EpisodesResp from './response/EpisodesResp';
 import Id from './scalarTypes/Id';
 import Int from './scalarTypes/Int';
+import FilterEpisodes from './filters/FilterEpisodes';
+import FilterCharacter from './filters/FilterCharacter';
+import FilterLocation from './filters/FilterLocation';
 
 const QueryLevel = () => {
   const dispatch = useAppDispatch();
@@ -55,6 +61,9 @@ const QueryLevel = () => {
     dispatch(toggleIsLocationsLvl(false));
     dispatch(toggleIsEpisodeLvl(false));
     dispatch(toggleIsEpisodesLvl(false));
+    dispatch(toggleIsCharacterFilter(false));
+    dispatch(toggleIsLocationFilter(false));
+    dispatch(toggleIsEpisodeFilter(false));
   };
 
   return (
@@ -93,6 +102,9 @@ const QueryLevel = () => {
       <LocationsResp title="Fields" callback={goToQueries} />
       <EpisodeResp title="Fields" callback={goToQueries} />
       <EpisodesResp title="Fields" callback={goToQueries} />
+      <FilterCharacter title="Fields" callback={goToQueries} />
+      <FilterLocation title="Fields" callback={goToQueries} />
+      <FilterEpisodes title="Fields" callback={goToQueries} />
     </>
   );
 };

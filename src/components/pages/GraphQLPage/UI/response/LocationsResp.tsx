@@ -47,15 +47,9 @@ const LocationsResp: FC<TScalar> = ({ callback, title }) => {
           />
           <h4 className={styles.title}>Locations</h4>
           <div>
-            <Arg name="info" type="Info" callback={goToInfo} newLine={false} lastArg={true} />
+            <Arg name="info" type="Info" callback={goToInfo} lastArg={true} />
 
-            <Arg
-              name="results"
-              type="Location"
-              list={true}
-              callback={goToLocation}
-              newLine={false}
-            />
+            <Arg name="results" type="Location" list={true} callback={goToLocation} />
           </div>
         </>
       )}

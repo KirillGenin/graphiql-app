@@ -7,7 +7,6 @@ interface IArg {
   nonNull?: boolean;
   list?: boolean;
   listNonNull?: boolean;
-  newLine?: boolean;
   lastArg?: boolean;
   callback?: () => void;
 }
@@ -18,13 +17,11 @@ const Arg = ({
   nonNull = false,
   list = false,
   listNonNull = false,
-  newLine = true,
   lastArg = false,
   callback,
 }: IArg) => {
   return (
-    <>
-      {newLine && <br />}
+    <p>
       <span className={styles.padding}>{name}: &nbsp;</span>
       {list ? '[' : ''}
       <span className={styles.link} onClick={callback}>
@@ -34,7 +31,7 @@ const Arg = ({
       {list ? ']' : ''}
       {listNonNull ? '!' : ''}
       {lastArg && <br />}
-    </>
+    </p>
   );
 };
 

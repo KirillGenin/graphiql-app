@@ -29,16 +29,16 @@ const Info: FC<TScalar> = ({ callback, title }) => {
           />
           <h4 className={styles.title}>Info</h4>
 
-          <Arg name="count" type="Int" callback={() => setInfoLink('goto')} newLine={false} />
+          <Arg name="count" type="Int" callback={() => setInfoLink('goto')} />
           <p className={styles.title_text}>{`The length of the response.`}</p>
 
-          <Arg name="pages" type="Int" callback={() => setInfoLink('goto')} newLine={false} />
+          <Arg name="pages" type="Int" callback={() => setInfoLink('goto')} />
           <p className={styles.title_text}>{`The amount of pages.`}</p>
 
-          <Arg name="next" type="Int" callback={() => setInfoLink('goto')} newLine={false} />
+          <Arg name="next" type="Int" callback={() => setInfoLink('goto')} />
           <p className={styles.title_text}>{`Number of the next page (if it exists)`}</p>
 
-          <Arg name="prev" type="Int" callback={() => setInfoLink('goto')} newLine={false} />
+          <Arg name="prev" type="Int" callback={() => setInfoLink('goto')} />
           <p className={styles.title_text}>{`Number of the previous page (if it exists)`}</p>
         </div>
       )}

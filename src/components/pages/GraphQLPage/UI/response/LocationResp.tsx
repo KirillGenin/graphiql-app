@@ -49,16 +49,16 @@ const LocationResp: FC<TScalar> = ({ callback, title }) => {
           />
           <h4 className={styles.title}>Location</h4>
 
-          <Arg name="id" type="ID" callback={() => goToId('goto')} newLine={false} />
+          <Arg name="id" type="ID" callback={() => goToId('goto')} />
           <p className={styles.title_text}>{`The id of the location.`}</p>
 
-          <Arg name="name" type="String" callback={() => goToString('goto')} newLine={false} />
+          <Arg name="name" type="String" callback={() => goToString('goto')} />
           <p className={styles.title_text}>{`The name of the location.`}</p>
 
-          <Arg name="type" type="String" callback={() => goToString('goto')} newLine={false} />
+          <Arg name="type" type="String" callback={() => goToString('goto')} />
           <p className={styles.title_text}>{`The type of the location.`}</p>
 
-          <Arg name="dimension" type="String" callback={() => goToString('goto')} newLine={false} />
+          <Arg name="dimension" type="String" callback={() => goToString('goto')} />
           <p className={styles.title_text}>{`The dimension in which the location is located.`}</p>
 
           <Arg
@@ -67,13 +67,12 @@ const LocationResp: FC<TScalar> = ({ callback, title }) => {
             callback={goToCharacter}
             list={true}
             listNonNull={true}
-            newLine={false}
           />
           <p
             className={styles.title_text}
           >{`List of characters who have been last seen in the location.`}</p>
 
-          <Arg name="created" type="String" newLine={false} callback={() => goToString('goto')} />
+          <Arg name="created" type="String" callback={() => goToString('goto')} />
           <p
             className={styles.title_text}
           >{`Time at which the location was created in the database.`}</p>

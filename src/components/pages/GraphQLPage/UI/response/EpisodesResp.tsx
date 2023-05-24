@@ -47,9 +47,9 @@ const EpisodesResp: FC<TScalar> = ({ callback, title }) => {
           />
           <h4 className={styles.title}>Episodes</h4>
           <div>
-            <Arg name="info" type="Info" callback={goToInfo} newLine={false} lastArg={true} />
+            <Arg name="info" type="Info" callback={goToInfo} lastArg={true} />
 
-            <Arg name="results" type="Episode" list={true} callback={goToEpisode} newLine={false} />
+            <Arg name="results" type="Episode" list={true} callback={goToEpisode} />
           </div>
         </>
       )}

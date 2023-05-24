@@ -22,23 +22,19 @@ const FilterEpisodes: FC<TScalar> = ({ callback, title }) => {
   return (
     <>
       {isVisible && (
-        <div>
+        <>
           <MainButton
             title={title}
             type="button"
             onClick={callback}
             rightIcon={<IconArrowLeft size={'1.2rem'} />}
           />
-          <h4 className={styles.title}>Info</h4>
-
-          <Arg name="name" type="String" callback={() => routeString('goto')} newLine={false} />
-          <Arg name="status" type="String" callback={() => routeString('goto')} newLine={false} />
-          <Arg name="species" type="String" callback={() => routeString('goto')} newLine={false} />
-          <Arg name="type" type="String" callback={() => routeString('goto')} newLine={false} />
-          <Arg name="gender" type="String" callback={() => routeString('goto')} newLine={false} />
-        </div>
+          <h4 className={styles.title}>Filter Episode</h4>
+          <Arg name="name" type="String" callback={() => routeString('goto')} />
+          <Arg name="episode" type="String" callback={() => routeString('goto')} />
+        </>
       )}
-      {string && <String title="FilterEpisodes" callback={() => routeString('goback')} />}
+      {string && <String title="Filter" callback={() => routeString('goback')} />}
     </>
   );
 };

@@ -3,6 +3,7 @@ import styles from '../../GraphQLPage.module.scss';
 import Arg from '../parts/Arg';
 import { useAppDispatch } from '../../../../../app/hooks';
 import {
+  toggleIsCharacterFilter,
   toggleIsCharactersLvl,
   toggleIsIntLvl,
   toggleIsQueryLvl,
@@ -24,13 +25,18 @@ const Characters = () => {
     dispatch(toggleIsCharactersLvl(true));
   };
 
+  const goToFilterCharacter = () => {
+    dispatch(toggleIsQueryLvl());
+    dispatch(toggleIsCharacterFilter(true));
+  };
+
   return (
     <>
       <div>
         <span>characters</span>
         <span>(</span>
         <Arg name="page" type="Int" callback={goToInt} />
-        <Arg name="filter" type="FilterCharacter" lastArg={true} />
+        <Arg name="filter" type="FilterCharacter" callback={goToFilterCharacter} lastArg={true} />
         <span>&nbsp;):&nbsp;</span>
         <span className={styles.link} onClick={clickHandler}>
           Characters

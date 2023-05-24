@@ -47,14 +47,8 @@ const CaractersResp: FC<TScalar> = ({ callback, title }) => {
           />
           <h4 className={styles.title}>Characters</h4>
           <div>
-            <Arg name="info" type="Info" callback={goToInfo} newLine={false} lastArg={true} />
-            <Arg
-              name="results"
-              type="Character"
-              list={true}
-              callback={goToCharacter}
-              newLine={false}
-            />
+            <Arg name="info" type="Info" callback={goToInfo} lastArg={true} />
+            <Arg name="results" type="Character" list={true} callback={goToCharacter} />
           </div>
         </>
       )}

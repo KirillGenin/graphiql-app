@@ -49,16 +49,16 @@ const EpisodeResp: FC<TScalar> = ({ callback, title }) => {
           />
           <h4 className={styles.title}>Episode</h4>
 
-          <Arg name="id" type="ID" callback={() => goToId('goto')} newLine={false} />
+          <Arg name="id" type="ID" callback={() => goToId('goto')} />
           <p className={styles.title_text}>{`The id of the episode.`}</p>
 
-          <Arg name="name" type="String" callback={() => goToString('goto')} newLine={false} />
+          <Arg name="name" type="String" callback={() => goToString('goto')} />
           <p className={styles.title_text}>{`The name of the episode.`}</p>
 
-          <Arg name="air_date" type="String" callback={() => goToString('goto')} newLine={false} />
+          <Arg name="air_date" type="String" callback={() => goToString('goto')} />
           <p className={styles.title_text}>{`The air date of the episode.`}</p>
 
-          <Arg name="episode" type="String" callback={() => goToString('goto')} newLine={false} />
+          <Arg name="episode" type="String" callback={() => goToString('goto')} />
           <p className={styles.title_text}>{`The code of the episode.`}</p>
 
           <Arg
@@ -67,13 +67,12 @@ const EpisodeResp: FC<TScalar> = ({ callback, title }) => {
             callback={goToCharacter}
             list={true}
             listNonNull={true}
-            newLine={false}
           />
           <p
             className={styles.title_text}
           >{`List of characters who have been seen in the episode.`}</p>
 
-          <Arg name="created" type="String" newLine={false} callback={() => goToString('goto')} />
+          <Arg name="created" type="String" callback={() => goToString('goto')} />
           <p
             className={styles.title_text}
           >{`Time at which the episode was created in the database.`}</p>

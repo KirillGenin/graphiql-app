@@ -55,35 +55,35 @@ const CharacterResp: FC<TScalar> = ({ callback, title }) => {
           />
           <h4 className={styles.title}>Character</h4>
 
-          <Arg name="id" type="ID" callback={() => goToId('goto')} newLine={false} />
+          <Arg name="id" type="ID" callback={() => goToId('goto')} />
           <p className={styles.title_text}>{`The id of the character.`}</p>
 
-          <Arg name="name" type="String" callback={() => goToString('goto')} newLine={false} />
+          <Arg name="name" type="String" callback={() => goToString('goto')} />
           <p className={styles.title_text}>{`The name of the character.`}</p>
 
-          <Arg name="status" type="String" callback={() => goToString('goto')} newLine={false} />
+          <Arg name="status" type="String" callback={() => goToString('goto')} />
           <p
             className={styles.title_text}
           >{`The status of the character ('Alive', 'Dead' or 'unknown').`}</p>
 
-          <Arg name="species" type="String" callback={() => goToString('goto')} newLine={false} />
+          <Arg name="species" type="String" callback={() => goToString('goto')} />
           <p className={styles.title_text}>{`The species of the character.`}</p>
 
-          <Arg name="type" type="String" callback={() => goToString('goto')} newLine={false} />
+          <Arg name="type" type="String" callback={() => goToString('goto')} />
           <p className={styles.title_text}>{`The type or subspecies of the character.`}</p>
 
-          <Arg name="gender" type="String" callback={() => goToString('goto')} newLine={false} />
+          <Arg name="gender" type="String" callback={() => goToString('goto')} />
           <p
             className={styles.title_text}
           >{`The gender of the character ('Female', 'Male', 'Genderless' or 'unknown').`}</p>
 
-          <Arg name="origin" type="Location" callback={goToLocation} newLine={false} />
+          <Arg name="origin" type="Location" callback={goToLocation} />
           <p className={styles.title_text}>{`The character's origin location`}</p>
 
-          <Arg name="location" type="Location" callback={goToLocation} newLine={false} />
+          <Arg name="location" type="Location" callback={goToLocation} />
           <p className={styles.title_text}>{`The character's last known location`}</p>
 
-          <Arg name="image" type="String" callback={() => goToString('goto')} newLine={false} />
+          <Arg name="image" type="String" callback={() => goToString('goto')} />
           <p className={styles.title_text}>{`Link to the character's image.
 All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.`}</p>
 
@@ -93,11 +93,10 @@ All images are 300x300px and most are medium shots or portraits since they are i
             list={true}
             listNonNull={true}
             callback={goToEpisode}
-            newLine={false}
           />
           <p className={styles.title_text}>{`Episodes in which this character appeared.`}</p>
 
-          <Arg name="created" type="String" callback={() => goToString('goto')} newLine={false} />
+          <Arg name="created" type="String" callback={() => goToString('goto')} />
           <p
             className={styles.title_text}
           >{`Time at which the character was created in the database.`}</p>
