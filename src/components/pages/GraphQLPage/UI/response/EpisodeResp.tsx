@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import Arg from '../parts/Arg';
 import { useAppDispatch, useAppSelector } from '../../../../../app/hooks';
 import MainButton from '../../../../common/Button';
@@ -11,19 +11,25 @@ import {
   toggleIsIdLvl,
   toggleIsStringLvl,
 } from '../../../../../app/slices/docsSlise';
+import Id from '../scalarTypes/Id';
+import String from '../scalarTypes/String';
 
 const EpisodeResp: FC<TScalar> = ({ callback, title }) => {
   const dispatch = useAppDispatch();
   const isVisible = useAppSelector((s) => s.docs.isEpisodeLvl);
+  const [id, setId] = useState(false);
+  const [string, setString] = useState(false);
 
-  const goToId = () => {
-    dispatch(toggleIsEpisodeLvl(false));
-    dispatch(toggleIsIdLvl(true));
+  const goToId = (flag: 'goto' | 'goback') => {
+    dispatch(toggleIsEpisodeLvl(flag === 'goback'));
+    dispatch(toggleIsIdLvl(flag === 'goto'));
+    setId((s) => !s);
   };
 
-  const goToString = () => {
-    dispatch(toggleIsEpisodeLvl(false));
-    dispatch(toggleIsStringLvl(true));
+  const goToString = (flag: 'goto' | 'goback') => {
+    dispatch(toggleIsEpisodeLvl(flag === 'goback'));
+    dispatch(toggleIsStringLvl(flag === 'goto'));
+    setString((s) => !s);
   };
 
   const goToCharacter = () => {
@@ -43,16 +49,16 @@ const EpisodeResp: FC<TScalar> = ({ callback, title }) => {
           />
           <h4 className={styles.title}>Episode</h4>
 
-          <Arg name="id" type="ID" callback={goToId} newLine={false} />
+          <Arg name="id" type="ID" callback={() => goToId('goto')} newLine={false} />
           <p className={styles.title_text}>{`The id of the episode.`}</p>
 
-          <Arg name="name" type="String" callback={goToString} newLine={false} />
+          <Arg name="name" type="String" callback={() => goToString('goto')} newLine={false} />
           <p className={styles.title_text}>{`The name of the episode.`}</p>
 
-          <Arg name="air_date" type="String" callback={goToString} newLine={false} />
+          <Arg name="air_date" type="String" callback={() => goToString('goto')} newLine={false} />
           <p className={styles.title_text}>{`The air date of the episode.`}</p>
 
-          <Arg name="episode" type="String" callback={goToString} newLine={false} />
+          <Arg name="episode" type="String" callback={() => goToString('goto')} newLine={false} />
           <p className={styles.title_text}>{`The code of the episode.`}</p>
 
           <Arg
@@ -67,12 +73,14 @@ const EpisodeResp: FC<TScalar> = ({ callback, title }) => {
             className={styles.title_text}
           >{`List of characters who have been seen in the episode.`}</p>
 
-          <Arg name="created" type="String" newLine={false} callback={goToString} />
+          <Arg name="created" type="String" newLine={false} callback={() => goToString('goto')} />
           <p
             className={styles.title_text}
           >{`Time at which the episode was created in the database.`}</p>
         </div>
       )}
+      {id && <Id title="Episode" callback={() => goToId('goback')} />}
+      {string && <String title="Episode" callback={() => goToString('goback')} />}
     </>
   );
 };

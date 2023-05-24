@@ -25,9 +25,6 @@ import {
   toggleIsEpisodeLvl,
   toggleIsEpisodesLvl,
 } from '../../../../app/slices/docsSlise';
-import Id from './scalarTypes/Id';
-import Int from './scalarTypes/Int';
-import String from './scalarTypes/String';
 import CaracterResp from './response/CharacterResp';
 import CaractersResp from './response/CharactersResp';
 import LocationResp from './response/LocationResp';
@@ -85,9 +82,6 @@ const QueryLevel = () => {
         </>
       )}
 
-      <Id title="Fields" callback={goToQueries} />
-      <Int title="Fields" callback={goToQueries} />
-      <String title="Fields" callback={goToQueries} />
       <CaracterResp title="Fields" callback={goToQueries} />
       <CaractersResp title="Fields" callback={goToQueries} />
       <LocationResp title="Fields" callback={goToQueries} />
