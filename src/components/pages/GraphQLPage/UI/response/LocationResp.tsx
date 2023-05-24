@@ -17,7 +17,7 @@ const LocationResp: FC<TScalar> = ({ callback, title }) => {
   const isVisible = useAppSelector((s) => s.docs.isLocationLvl);
 
   const goToId = () => {
-    dispatch(toggleIsCharacterLvl(false));
+    dispatch(toggleIsLocationLvl(false));
     dispatch(toggleIsIdLvl(true));
   };
 

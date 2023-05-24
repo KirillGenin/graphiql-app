@@ -7,8 +7,8 @@ import { TScalar } from '../scalarTypes/type';
 import styles from '../../GraphQLPage.module.scss';
 import {
   toggleIsCharacterLvl,
+  toggleIsEpisodeLvl,
   toggleIsIdLvl,
-  toggleIsLocationLvl,
   toggleIsStringLvl,
 } from '../../../../../app/slices/docsSlise';
 
@@ -17,17 +17,17 @@ const EpisodeResp: FC<TScalar> = ({ callback, title }) => {
   const isVisible = useAppSelector((s) => s.docs.isEpisodeLvl);
 
   const goToId = () => {
-    dispatch(toggleIsCharacterLvl(false));
+    dispatch(toggleIsEpisodeLvl(false));
     dispatch(toggleIsIdLvl(true));
   };
 
   const goToString = () => {
-    dispatch(toggleIsLocationLvl(false));
+    dispatch(toggleIsEpisodeLvl(false));
     dispatch(toggleIsStringLvl(true));
   };
 
   const goToCharacter = () => {
-    dispatch(toggleIsLocationLvl(false));
+    dispatch(toggleIsEpisodeLvl(false));
     dispatch(toggleIsCharacterLvl(true));
   };
 

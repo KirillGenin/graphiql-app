@@ -38,15 +38,6 @@ import EpisodesResp from './response/EpisodesResp';
 const QueryLevel = () => {
   const dispatch = useAppDispatch();
   const isQueryLvl = useAppSelector((state) => state.docs.isQueryLvl);
-  const isIdLvl = useAppSelector((state) => state.docs.isIdLvl);
-  const isIntLvl = useAppSelector((state) => state.docs.isIntLvl);
-  const isStringLvl = useAppSelector((state) => state.docs.isStringLvl);
-  const isCharacterLvl = useAppSelector((state) => state.docs.isCharacterLvl);
-  const isCharactersLvl = useAppSelector((state) => state.docs.isCharactersLvl);
-  const isLocationLvl = useAppSelector((state) => state.docs.isLocationLvl);
-  const isLocationsLvl = useAppSelector((state) => state.docs.isLocationsLvl);
-  const isEpisodeLvl = useAppSelector((state) => state.docs.isEpisodeLvl);
-  const isEpisodesLvl = useAppSelector((state) => state.docs.isEpisodesLvl);
 
   const goToDocs = () => {
     dispatch(toggleIsTopLvl());
@@ -94,15 +85,15 @@ const QueryLevel = () => {
         </>
       )}
 
-      {isIdLvl && <Id title="Fields" callback={goToQueries} />}
-      {isIntLvl && <Int title="Fields" callback={goToQueries} />}
-      {isStringLvl && <String title="Fields" callback={goToQueries} />}
-      {isCharacterLvl && <CaracterResp title="Fields" callback={goToQueries} />}
-      {isCharactersLvl && <CaractersResp title="Fields" callback={goToQueries} />}
-      {isLocationLvl && <LocationResp title="Fields" callback={goToQueries} />}
-      {isLocationsLvl && <LocationsResp title="Fields" callback={goToQueries} />}
-      {isEpisodeLvl && <EpisodeResp title="Fields" callback={goToQueries} />}
-      {isEpisodesLvl && <EpisodesResp title="Fields" callback={goToQueries} />}
+      <Id title="Fields" callback={goToQueries} />
+      <Int title="Fields" callback={goToQueries} />
+      <String title="Fields" callback={goToQueries} />
+      <CaracterResp title="Fields" callback={goToQueries} />
+      <CaractersResp title="Fields" callback={goToQueries} />
+      <LocationResp title="Fields" callback={goToQueries} />
+      <LocationsResp title="Fields" callback={goToQueries} />
+      <EpisodeResp title="Fields" callback={goToQueries} />
+      <EpisodesResp title="Fields" callback={goToQueries} />
     </>
   );
 };

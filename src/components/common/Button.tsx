@@ -18,7 +18,7 @@ const MainButton: FC<IButton> = ({ onClick, title, type, rightIcon }) => {
       color="dark"
       bg="#ffffff"
       radius="md"
-      w={'8rem'}
+      w={'8.5rem'}
       h={'2.25rem'}
       styles={{
         root: {
