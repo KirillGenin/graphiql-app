@@ -35,10 +35,11 @@ const LocationsByIds = () => {
           lastArg={true}
           callback={goToId}
         />
-        <span>&nbsp;):&nbsp;</span>
+        <span>&nbsp;):&nbsp;[</span>
         <span className={styles.link} onClick={clickHandler}>
-          [Location]
+          Location
         </span>
+        <span>]</span>
       </div>
       <p className={styles.title_text}>Get a list of characters selected by ids</p>
     </>

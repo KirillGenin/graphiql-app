@@ -35,10 +35,11 @@ const СharactersByIds = () => {
           lastArg={true}
           callback={goToId}
         />
-        <span>&nbsp;):&nbsp;</span>
+        <span>&nbsp;):&nbsp;[</span>
         <span className={styles.link} onClick={clickHandler}>
-          [Character]
+          Character
         </span>
+        <span>]</span>
       </div>
       <p className={styles.title_text}>Get a list of characters selected by ids</p>
     </>

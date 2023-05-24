@@ -35,10 +35,11 @@ const EpisodesByIds = () => {
           lastArg={true}
           callback={goToId}
         />
-        <span>&nbsp;):&nbsp;</span>
+        <span>&nbsp;):&nbsp;[</span>
         <span className={styles.link} onClick={clickHandler}>
-          [Episode]
+          Episode
         </span>
+        <span>]</span>
       </div>
       <p className={styles.title_text}>Get a list of episodes selected by ids</p>
     </>
