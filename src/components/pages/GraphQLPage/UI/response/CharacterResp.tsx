@@ -15,7 +15,7 @@ import {
 import String from '../scalarTypes/String';
 import Id from '../scalarTypes/Id';
 
-const CaracterResp: FC<TScalar> = ({ callback, title }) => {
+const CharacterResp: FC<TScalar> = ({ callback, title }) => {
   const dispatch = useAppDispatch();
   const isVisible = useAppSelector((s) => s.docs.isCharacterLvl);
   const [id, setId] = useState(false);
@@ -109,4 +109,4 @@ All images are 300x300px and most are medium shots or portraits since they are i
   );
 };
 
-export default CaracterResp;
+export default CharacterResp;

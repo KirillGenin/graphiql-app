@@ -25,16 +25,19 @@ import {
   toggleIsEpisodeLvl,
   toggleIsEpisodesLvl,
 } from '../../../../app/slices/docsSlise';
-import CaracterResp from './response/CharacterResp';
+import CharacterResp from './response/CharacterResp';
 import CaractersResp from './response/CharactersResp';
 import LocationResp from './response/LocationResp';
 import LocationsResp from './response/LocationsResp';
 import EpisodeResp from './response/EpisodeResp';
 import EpisodesResp from './response/EpisodesResp';
+import Id from './scalarTypes/Id';
+import Int from './scalarTypes/Int';
 
 const QueryLevel = () => {
   const dispatch = useAppDispatch();
   const isQueryLvl = useAppSelector((state) => state.docs.isQueryLvl);
+  const isQuerySubLvl = useAppSelector((state) => state.docs.isQuerySubLvl);
 
   const goToDocs = () => {
     dispatch(toggleIsTopLvl());
@@ -82,7 +85,9 @@ const QueryLevel = () => {
         </>
       )}
 
-      <CaracterResp title="Fields" callback={goToQueries} />
+      {isQuerySubLvl && <Id title="Fields" callback={goToQueries} />}
+      {isQuerySubLvl && <Int title="Fields" callback={goToQueries} />}
+      <CharacterResp title="Fields" callback={goToQueries} />
       <CaractersResp title="Fields" callback={goToQueries} />
       <LocationResp title="Fields" callback={goToQueries} />
       <LocationsResp title="Fields" callback={goToQueries} />

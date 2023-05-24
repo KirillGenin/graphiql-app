@@ -6,6 +6,7 @@ import {
   toggleIsCharactersLvl,
   toggleIsIntLvl,
   toggleIsQueryLvl,
+  toggleIsQuerySubLvl,
 } from '../../../../../app/slices/docsSlise';
 
 const Characters = () => {
@@ -13,11 +14,13 @@ const Characters = () => {
 
   const goToInt = () => {
     dispatch(toggleIsQueryLvl());
+    dispatch(toggleIsQuerySubLvl(true));
     dispatch(toggleIsIntLvl(true));
   };
 
   const clickHandler = () => {
     dispatch(toggleIsQueryLvl());
+    dispatch(toggleIsQuerySubLvl(false));
     dispatch(toggleIsCharactersLvl(true));
   };
 
