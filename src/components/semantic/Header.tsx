@@ -5,7 +5,7 @@ import cookie from 'cookie';
 import { NavLink as NavLinkUi } from '@mantine/core';
 import { IconHome2, IconLogout, IconLogin, IconDatabaseSearch } from '@tabler/icons-react';
 import styles from './Header.module.scss';
-import MainButton from '../common/Button';
+import MainButton from '../common/MainButton';
 
 const Header = () => {
   const navigate = useNavigate();

@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
 import styles from '../../GraphQLPage.module.scss';
-import MainButton from '../../../../common/Button';
 import { TScalar } from './type';
 import { useAppSelector } from '../../../../../app/hooks';
-import { IconArrowLeft } from '@tabler/icons-react';
+import ReturnButton from '../../../../common/ReturnButton';
 
 const Id: FC<TScalar> = ({ callback, title }) => {
   const isVisible = useAppSelector((s) => s.docs.isIdLvl);
@@ -12,12 +11,7 @@ const Id: FC<TScalar> = ({ callback, title }) => {
     <>
       {isVisible && (
         <>
-          <MainButton
-            title={title}
-            type="button"
-            onClick={callback}
-            rightIcon={<IconArrowLeft size={'1.2rem'} />}
-          />
+          <ReturnButton title={title} onClick={callback} />
           <h4 className={styles.title}>ID</h4>
           <p className={styles.title_text}>
             {`The ID scalar type represents a unique identifier, often used to refetch an

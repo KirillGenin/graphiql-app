@@ -10,8 +10,6 @@ import LocationsByIds from './fields/LocationsByIds';
 import Episode from './fields/Episode';
 import Episodes from './fields/Episodes';
 import EpisodesByIds from './fields/EpisodesByIds';
-import MainButton from '../../../common/Button';
-import { IconArrowLeft } from '@tabler/icons-react';
 import {
   toggleIsCharacterLvl,
   toggleIsCharactersLvl,
@@ -39,6 +37,7 @@ import Int from './scalarTypes/Int';
 import FilterEpisodes from './filters/FilterEpisodes';
 import FilterCharacter from './filters/FilterCharacter';
 import FilterLocation from './filters/FilterLocation';
+import ReturnButton from '../../../common/ReturnButton';
 
 const QueryLevel = () => {
   const dispatch = useAppDispatch();
@@ -71,12 +70,7 @@ const QueryLevel = () => {
       {isQueryLvl && (
         <>
           <div>
-            <MainButton
-              onClick={goToDocs}
-              title="Docs"
-              type="button"
-              rightIcon={<IconArrowLeft size={'1.2rem'} />}
-            />
+            <ReturnButton onClick={goToDocs} title="Docs" />
           </div>
           <h4 className={styles.title} onClick={goToDocs}>
             Query

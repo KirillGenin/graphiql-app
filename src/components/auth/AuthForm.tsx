@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import { Input } from '@mantine/core';
 import { IconLogin } from '@tabler/icons-react';
 import styles from './AuthForm.module.scss';
-import MainButton from '../common/Button';
+import MainButton from '../common/MainButton';
 
 interface IFormProps {
   title: string;
