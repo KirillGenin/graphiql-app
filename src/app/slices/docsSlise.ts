@@ -104,12 +104,12 @@ const docsSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(fetchSchema.fulfilled, (state, action) => {
-        state.isLoading = true;
+        state.isLoading = false;
         state.schema = action.payload;
         state.error = '';
       })
       .addCase(fetchSchema.rejected, (state) => {
-        state.isLoading = true;
+        state.isLoading = false;
         state.error = 'Impossible to fetch data from resource';
       });
   },
