@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { FC } from 'react';
 import TopLevel from './TopLevel';
 import QueryLevel from './QueryLevel';
 
-const DocumentationItem = () => {
+type TDoc = {
+  visible: boolean;
+};
+
+const DocumentationItem: FC<TDoc> = ({ visible }) => {
   return (
     <>
-      <TopLevel />
-      <QueryLevel />
+      {visible && (
+        <>
+          <TopLevel />
+          <QueryLevel />
+        </>
+      )}
     </>
   );
 };

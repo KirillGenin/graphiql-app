@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Button } from '@mantine/core';
 import { IButton } from './types';
 
-const MainButton: FC<IButton> = ({ onClick, title, type, rightIcon }) => {
+const MainButton: FC<IButton> = ({ onClick, title, type, rightIcon, width = '8.5rem' }) => {
   return (
     <Button
       type={type}
@@ -12,7 +12,7 @@ const MainButton: FC<IButton> = ({ onClick, title, type, rightIcon }) => {
       color="dark"
       bg="#ffffff"
       radius="md"
-      w={'8.5rem'}
+      w={width}
       h={'2.25rem'}
       styles={{
         root: {
