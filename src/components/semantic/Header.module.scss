@@ -8,4 +8,16 @@
 .navigation {
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 568px) {
+    display: none;
+  }
+}
+
+.burger {
+  display: none;
+
+  @media (max-width: 568px) {
+    display: block;
+  }
 }

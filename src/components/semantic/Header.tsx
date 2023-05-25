@@ -2,10 +2,11 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MainRoutes } from '../../types/enums';
 import cookie from 'cookie';
-import { NavLink as NavLinkUi } from '@mantine/core';
-import { IconHome2, IconLogout, IconLogin, IconDatabaseSearch } from '@tabler/icons-react';
+import { Burger, Menu } from '@mantine/core';
+import { IconLogout } from '@tabler/icons-react';
 import styles from './Header.module.scss';
 import MainButton from '../common/MainButton';
+import Navigation from './Navigation';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -20,25 +21,16 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
+      <Menu shadow="md" width={'10rem'}>
+        <Menu.Target>
+          <Burger className={styles.burger} opened={false} size={'1.5rem'} />
+        </Menu.Target>
+        <Menu.Dropdown>
+          <Navigation />
+        </Menu.Dropdown>
+      </Menu>
       <nav className={styles.navigation}>
-        <NavLinkUi
-          w={'8.5rem'}
-          label="Home"
-          onClick={() => navigate(MainRoutes.WelcomePage)}
-          icon={<IconHome2 size="1rem" stroke={1.5} />}
-        />
-        <NavLinkUi
-          w={'8.5rem'}
-          label="Registration"
-          onClick={() => navigate(MainRoutes.AuthPage)}
-          icon={<IconLogin size={'1.2rem'} />}
-        />
-        <NavLinkUi
-          w={'8.5rem'}
-          label="GraphiQL"
-          onClick={() => navigate(MainRoutes.GraphPage)}
-          icon={<IconDatabaseSearch size={'1.1rem'} />}
-        />
+        <Navigation />
       </nav>
       <MainButton
         onClick={handleLogout}
