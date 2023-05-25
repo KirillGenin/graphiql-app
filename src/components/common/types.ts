@@ -1,5 +1,5 @@
 export interface IButton {
-  onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   title: string;
   type: 'submit' | 'button';
   rightIcon: JSX.Element;
