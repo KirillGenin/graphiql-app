@@ -6,7 +6,8 @@ import { Burger, Menu } from '@mantine/core';
 import { IconLogout } from '@tabler/icons-react';
 import styles from './Header.module.scss';
 import MainButton from '../common/MainButton';
-import Navigation from './Navigation';
+import Navigation from './UI/Navigation';
+import LanguageBar from './UI/LanguageBar';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -32,12 +33,15 @@ const Header = () => {
       <nav className={styles.navigation}>
         <Navigation />
       </nav>
-      <MainButton
-        onClick={handleLogout}
-        title="Log out"
-        type="button"
-        rightIcon={<IconLogout size={'1.2rem'} />}
-      />
+      <div>
+        <LanguageBar />
+        <MainButton
+          onClick={handleLogout}
+          title="Log out"
+          type="button"
+          rightIcon={<IconLogout size={'1.2rem'} />}
+        />
+      </div>
     </header>
   );
 };
