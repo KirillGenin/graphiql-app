@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../GraphQLPage.module.scss';
 import DocumentationItem from './DocumentationItem';
 import { useAppSelector } from '../../../../app/hooks';
@@ -8,6 +8,16 @@ import { IconBook2 } from '@tabler/icons-react';
 const Documentation = () => {
   const [isVisible, setVisible] = useState<boolean>(true);
   const isLoading = useAppSelector((s) => s.docs.isLoading);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setVisible(window.innerWidth > 568);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  });
 
   return (
     <aside className={isVisible ? styles.documentation : styles.hidden}>

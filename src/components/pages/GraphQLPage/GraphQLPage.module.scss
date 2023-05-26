@@ -16,10 +16,6 @@
   overflow-y: auto;
   transition: ease 0.3s;
 
-  @media (max-width: 568px) {
-    display: none;
-  }
-
   &::-webkit-scrollbar {
     width: 0.7rem;
   }
