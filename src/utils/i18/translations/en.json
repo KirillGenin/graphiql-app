@@ -1,5 +1,18 @@
 {
+  "navHome": "Home",
+  "navReg": "Registration",
+  "en": "ENG",
+  "ru": "RUS",
+  "logout": "Log out",
+
   "welcomeUser": "Hi! Welcome back ",
   "welcomeNewcomer": "Hi! Welcome, my dear newcomer! ",
-  "welcomeLink": "Please log in or sing up."
+  "welcomeLink": "Please log in or sing up.",
+  "button404title": "Back home",
+  "login": "Log In",
+  "signup": "Sign Up",
+  "loginMessage": "Already have an account?",
+  "signupMessage": "Don`t have an account?",
+  "email": "Enter your email adress",
+  "password": "Enter your password"
 }

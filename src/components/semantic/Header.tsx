@@ -8,9 +8,11 @@ import styles from './Header.module.scss';
 import MainButton from '../common/MainButton';
 import Navigation from './UI/Navigation';
 import LanguageBar from './UI/LanguageBar';
+import { useTranslation } from 'react-i18next';
 
 const Header = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleLogout = async () => {
     const { email, token, id } = cookie.parse(document.cookie);
@@ -37,7 +39,7 @@ const Header = () => {
         <LanguageBar />
         <MainButton
           onClick={handleLogout}
-          title="Log out"
+          title={t('logout')!}
           type="button"
           rightIcon={<IconLogout size={'1.2rem'} />}
         />

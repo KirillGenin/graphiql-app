@@ -3,6 +3,7 @@ import { Input } from '@mantine/core';
 import { IconLogin } from '@tabler/icons-react';
 import styles from './AuthForm.module.scss';
 import MainButton from '../common/MainButton';
+import { useTranslation } from 'react-i18next';
 
 interface IFormProps {
   title: string;
@@ -10,6 +11,8 @@ interface IFormProps {
 }
 
 const AuthForm: FC<IFormProps> = ({ title, handleClick }) => {
+  const { t } = useTranslation();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -26,14 +29,14 @@ const AuthForm: FC<IFormProps> = ({ title, handleClick }) => {
       <Input
         type="email"
         value={email}
-        placeholder="Enter your email adress"
+        placeholder={t('email')}
         onChange={(e) => setEmail(e.target.value)}
         styles={inputStyles}
       />
       <Input
         type="password"
         value={password}
-        placeholder="Enter your password"
+        placeholder={t('password')}
         onChange={(e) => setPassword(e.target.value)}
         styles={inputStyles}
       />
@@ -41,6 +44,7 @@ const AuthForm: FC<IFormProps> = ({ title, handleClick }) => {
         onClick={(e) => handleClick(e, email, password)}
         title={title}
         type="submit"
+        width="9.5rem"
         rightIcon={<IconLogin size={'1.2rem'} />}
       />
     </form>
