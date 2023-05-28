@@ -32,5 +32,6 @@
   "variables": "Variables",
   "headers": "Headers",
   "hideEditorTools": "Hide Editor Tools",
-  "showEditorTools": "Show Editor Tools"
+  "showEditorTools": "Show Editor Tools",
+  "rickandmortyapi": "Rick and Morty GraphQL"
 }

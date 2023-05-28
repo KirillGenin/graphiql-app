@@ -32,5 +32,6 @@
   "variables": "Переменные",
   "headers": "Заголовки",
   "hideEditorTools": "Скрыть настройки редактора",
-  "showEditorTools": "Открыть настройки редактора"
+  "showEditorTools": "Открыть настройки редактора",
+  "rickandmortyapi": "Рик и Морти GraphQL"
 }
