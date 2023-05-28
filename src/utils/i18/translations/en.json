@@ -18,5 +18,9 @@
   "loginMessage": "Already have an account?",
   "signupMessage": "Don`t have an account?",
   "email": "Enter your email adress",
-  "password": "Enter your password"
+  "emailLabel": "Email",
+  "emailError": "Address entered incorrectly",
+  "password": "Enter your password",
+  "passwordLabel": "Password",
+  "passwordError": "Must not be shorter than 8 characters, contain at least 1 letter, 1 number and 1 special character"
 }
