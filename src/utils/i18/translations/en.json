@@ -25,5 +25,13 @@
   "emailError": "Address entered incorrectly",
   "password": "Enter your password",
   "passwordLabel": "Password",
-  "passwordError": "Must not be shorter than 8 characters, contain at least 1 letter, 1 number and 1 special character"
+  "passwordError": "Must not be shorter than 8 characters, contain at least 1 letter, 1 number and 1 special character",
+
+  "executeQuery": "Execute query",
+  "prettifyQuery": "Prettify query",
+  "variables": "Variables",
+  "headers": "Headers",
+  "hideEditorTools": "Hide Editor Tools",
+  "showEditorTools": "Show Editor Tools",
+  "rickandmortyapi": "Rick and Morty GraphQL"
 }

@@ -3,11 +3,13 @@ import styles from './EditorToolsTabs.module.scss';
 import { Tooltip } from 'react-tooltip';
 import { graphiqlActions } from '../../../app/slices/graphiqlSlice';
 import { useAppSelector, useAppDispatch } from '../../../app/hooks';
+import { useTranslation } from 'react-i18next';
 
 const EditorToolsTabs: React.FC = () => {
   const dispatch = useAppDispatch();
   const openAddEditor = useAppSelector((state) => state.graphiql.openAddEditor);
   const activeTab = useAppSelector((state) => state.graphiql.activeTab);
+  const { t } = useTranslation();
 
   const onClickActive = (tab: string) => {
     dispatch(graphiqlActions.setActiveTab(tab));
@@ -24,7 +26,7 @@ const EditorToolsTabs: React.FC = () => {
           }`}
           onClick={() => onClickActive('variables')}
         >
-          Variables
+          {`${t('variables')}`}
         </button>
         <button
           className={`${styles['graphiql-un-styled']} ${
@@ -32,14 +34,14 @@ const EditorToolsTabs: React.FC = () => {
           }`}
           onClick={() => onClickActive('headers')}
         >
-          Headers
+          {`${t('headers')}`}
         </button>
       </div>
       <button
         className={styles['graphiql-un-styled']}
         onClick={() => dispatch(graphiqlActions.setOpenAddEditor(!openAddEditor))}
         data-tooltip-id="openEditor"
-        data-tooltip-content={openAddEditor ? 'Hide Editor Tools' : 'Show Editor Tools'}
+        data-tooltip-content={openAddEditor ? `${t('hideEditorTools')}` : `${t('showEditorTools')}`}
         data-tooltip-place="top"
       >
         <svg
