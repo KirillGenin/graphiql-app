@@ -78,3 +78,23 @@
 .browser {
   width: 100%;
 }
+
+@media all and (max-width: 767px) {
+  .documentation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: 100%;
+    background-color: #fff;
+    border: 1px solid #333;
+    padding: 5px 5px 10px;
+  }
+
+  .hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+}
