@@ -6,6 +6,7 @@ const MainButton: FC<IButton> = ({ onClick, title, type, rightIcon, width = '8.5
   return (
     <Button
       type={type}
+      p={'0.5rem'}
       onClick={(e) => onClick(e)}
       rightIcon={rightIcon}
       variant="light"

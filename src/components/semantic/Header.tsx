@@ -1,18 +1,31 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MainRoutes } from '../../types/enums';
+import { MainRoutes, Registration } from '../../types/enums';
 import cookie from 'cookie';
 import { Burger, Menu } from '@mantine/core';
-import { IconLogout } from '@tabler/icons-react';
+import { IconLogin, IconLogout } from '@tabler/icons-react';
 import styles from './Header.module.scss';
 import MainButton from '../common/MainButton';
 import Navigation from './UI/Navigation';
 import LanguageBar from './UI/LanguageBar';
 import { useTranslation } from 'react-i18next';
+import { useAppDispatch } from '../../app/hooks';
+import { toggleRegType } from '../../app/slices/authSlice';
 
 const Header = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { t } = useTranslation();
+
+  const handleSignIn = () => {
+    dispatch(toggleRegType(Registration.SignUp));
+    navigate(MainRoutes.AuthPage);
+  };
+
+  const handleLogIn = () => {
+    dispatch(toggleRegType(Registration.LogIn));
+    navigate(MainRoutes.AuthPage);
+  };
 
   const handleLogout = async () => {
     const { email, token, id } = cookie.parse(document.cookie);
@@ -37,6 +50,18 @@ const Header = () => {
       </nav>
       <div>
         <LanguageBar />
+        <MainButton
+          onClick={handleSignIn}
+          title={t('signup')!}
+          type="button"
+          rightIcon={<IconLogin size={'1.2rem'} />}
+        />
+        <MainButton
+          onClick={handleLogIn}
+          title={t('login')!}
+          type="button"
+          rightIcon={<IconLogin size={'1.2rem'} />}
+        />
         <MainButton
           onClick={handleLogout}
           title={t('logout')!}
