@@ -29,3 +29,16 @@
 .active-tab {
   color: #5ab663;
 }
+
+@media all and (max-width: 500px) {
+  .graphiql-editor-tools-tabs {
+    gap: 10px;
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .graphiql-editor-tools-tabs {
+    gap: 5px;
+  }
+}
