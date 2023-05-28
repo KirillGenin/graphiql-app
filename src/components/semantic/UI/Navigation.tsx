@@ -5,7 +5,6 @@ import { MainRoutes, Registration } from '../../../types/enums';
 import { IconDatabaseSearch, IconHome2, IconLogin, IconLogout } from '@tabler/icons-react';
 import { useTranslation } from 'react-i18next';
 import LanguageBar from './LanguageBar';
-import MainButton from '../../common/MainButton';
 import { toggleRegType } from '../../../app/slices/authSlice';
 import { useAppDispatch } from '../../../app/hooks';
 import cookie from 'cookie';
@@ -58,23 +57,26 @@ const Navigation = () => {
         icon={<IconDatabaseSearch size={'1.1rem'} />}
       />
       <LanguageBar />
-      <MainButton
+      <NavLinkUi
+        w={'8.5rem'}
+        styles={stylesLink}
+        label={t('signup')}
         onClick={handleSignIn}
-        title={t('signup')!}
-        type="button"
-        rightIcon={<IconLogin size={'1.2rem'} />}
+        icon={<IconLogin size={'1.2rem'} />}
       />
-      <MainButton
+      <NavLinkUi
+        w={'8.5rem'}
+        styles={stylesLink}
+        label={t('login')}
         onClick={handleLogIn}
-        title={t('login')!}
-        type="button"
-        rightIcon={<IconLogin size={'1.2rem'} />}
+        icon={<IconLogin size={'1.2rem'} />}
       />
-      <MainButton
+      <NavLinkUi
+        w={'8.5rem'}
+        styles={stylesLink}
+        label={t('logout')}
         onClick={handleLogout}
-        title={t('logout')!}
-        type="button"
-        rightIcon={<IconLogout size={'1.2rem'} />}
+        icon={<IconLogout size={'1.2rem'} />}
       />
     </div>
   );
