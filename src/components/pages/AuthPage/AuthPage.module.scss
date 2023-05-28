@@ -1,6 +1,8 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  max-width: 30rem;
+  margin: 0 auto;
 }
 
 .toggler {
@@ -14,7 +16,4 @@
 .auth_type {
   padding: 0.5rem;
   text-align: center;
-}
-
-.auth_message {
 }
