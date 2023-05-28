@@ -8,15 +8,27 @@ import EditorToolsTabs from './EditorToolsTabs';
 import { useAppSelector } from '../../app/hooks';
 import HeadersEditor from './HeadersEditor';
 import VariablesEditor from './VariablesEditor';
+import { useTranslation } from 'react-i18next';
 
 const GraphiQL = () => {
   const openAddEditor = useAppSelector((state) => state.graphiql.openAddEditor);
   const activeTab = useAppSelector((state) => state.graphiql.activeTab);
+  const { t } = useTranslation();
 
   return (
     <>
       <div className={styles.wrapper}>
         <div className={`${styles.section} ${styles['section-graphiql']}`}>
+          <p className={styles['source']}>
+            <a
+              className={styles['source__link']}
+              href="https://rickandmortyapi.com/graphql"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {`${t('rickandmortyapi')}`}
+            </a>
+          </p>
           <div className={styles['query-wrapper']}>
             <div className={styles['codemirror-wrapper']}>
               <RequestEditor />

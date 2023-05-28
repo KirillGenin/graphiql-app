@@ -3,12 +3,14 @@ import styles from './Toolbar.module.scss';
 import { useAppSelector, useAppDispatch } from '../../../app/hooks';
 import { fetchGraphQLData, graphiqlActions } from '../../../app/slices/graphiqlSlice';
 import { Tooltip } from 'react-tooltip';
+import { useTranslation } from 'react-i18next';
 
 const Toolbar = () => {
   const dispatch = useAppDispatch();
   const query = useAppSelector((state) => state.graphiql.query);
   const variables = useAppSelector((state) => state.graphiql.variables);
   const loading = useAppSelector((state) => state.graphiql.loading);
+  const { t } = useTranslation();
 
   const getData = React.useCallback(() => {
     dispatch(fetchGraphQLData({ query, variables }));
@@ -44,7 +46,7 @@ const Toolbar = () => {
       <button
         onClick={getData}
         data-tooltip-id="get"
-        data-tooltip-content="Execute query"
+        data-tooltip-content={`${t('executeQuery')}`}
         data-tooltip-place="top"
         className={styles['graphiql-execute-button']}
         type="button"
@@ -64,7 +66,7 @@ const Toolbar = () => {
       <button
         onClick={onFormatQuery}
         data-tooltip-id="format"
-        data-tooltip-content="Prettify query"
+        data-tooltip-content={`${t('prettifyQuery')}`}
         data-tooltip-place="top"
         className={styles['graphiql-toolbar-button']}
       >
