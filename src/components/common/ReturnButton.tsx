@@ -1,19 +1,14 @@
 import React, { FC } from 'react';
 import { Button } from '@mantine/core';
+import { IconArrowLeft } from '@tabler/icons-react';
+import { TReturnButton } from './types';
 
-interface IButton {
-  onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-  title: string;
-  type: 'submit' | 'button';
-  rightIcon: JSX.Element;
-}
-
-const MainButton: FC<IButton> = ({ onClick, title, type, rightIcon }) => {
+const ReturnButton: FC<TReturnButton> = ({ onClick, title }) => {
   return (
     <Button
-      type={type}
+      type="button"
       onClick={(e) => onClick(e)}
-      rightIcon={rightIcon}
+      rightIcon={<IconArrowLeft size={'1.2rem'} />}
       variant="light"
       color="dark"
       bg="#ffffff"
@@ -31,4 +26,4 @@ const MainButton: FC<IButton> = ({ onClick, title, type, rightIcon }) => {
   );
 };
 
-export default MainButton;
+export default ReturnButton;

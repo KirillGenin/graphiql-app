@@ -1,12 +1,11 @@
 import React, { FC, useState } from 'react';
 import { TScalar } from '../scalarTypes/type';
 import { useAppDispatch, useAppSelector } from '../../../../../app/hooks';
-import MainButton from '../../../../common/Button';
-import { IconArrowLeft } from '@tabler/icons-react';
 import Arg from '../parts/Arg';
 import styles from '../../GraphQLPage.module.scss';
 import String from '../scalarTypes/String';
 import { toggleIsCharacterFilter, toggleIsStringLvl } from '../../../../../app/slices/docsSlise';
+import ReturnButton from '../../../../common/ReturnButton';
 
 const FilterCharacter: FC<TScalar> = ({ callback, title }) => {
   const dispatch = useAppDispatch();
@@ -23,12 +22,7 @@ const FilterCharacter: FC<TScalar> = ({ callback, title }) => {
     <>
       {isVisible && (
         <>
-          <MainButton
-            title={title}
-            type="button"
-            onClick={callback}
-            rightIcon={<IconArrowLeft size={'1.2rem'} />}
-          />
+          <ReturnButton title={title} onClick={callback} />
           <h4 className={styles.title}>Filter Character</h4>
           <Arg name="name" type="String" callback={() => routeString('goto')} />
           <Arg name="status" type="String" callback={() => routeString('goto')} />

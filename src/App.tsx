@@ -12,6 +12,7 @@ function App() {
         withNormalizeCSS
         theme={{
           fontFamily: 'Open Sans, sans-serif',
+          loader: 'dots',
         }}
       >
         <RouterProvider router={router} />

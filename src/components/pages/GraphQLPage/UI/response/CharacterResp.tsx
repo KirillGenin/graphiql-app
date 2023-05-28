@@ -1,8 +1,6 @@
 import React, { FC, useState } from 'react';
 import Arg from '../parts/Arg';
 import { useAppDispatch, useAppSelector } from '../../../../../app/hooks';
-import MainButton from '../../../../common/Button';
-import { IconArrowLeft } from '@tabler/icons-react';
 import { TScalar } from '../scalarTypes/type';
 import styles from '../../GraphQLPage.module.scss';
 import {
@@ -14,6 +12,7 @@ import {
 } from '../../../../../app/slices/docsSlise';
 import String from '../scalarTypes/String';
 import Id from '../scalarTypes/Id';
+import ReturnButton from '../../../../common/ReturnButton';
 
 const CharacterResp: FC<TScalar> = ({ callback, title }) => {
   const dispatch = useAppDispatch();
@@ -47,12 +46,7 @@ const CharacterResp: FC<TScalar> = ({ callback, title }) => {
     <>
       {isVisible && (
         <div>
-          <MainButton
-            title={title}
-            type="button"
-            onClick={callback}
-            rightIcon={<IconArrowLeft size={'1.2rem'} />}
-          />
+          <ReturnButton title={title} onClick={callback} />
           <h4 className={styles.title}>Character</h4>
 
           <Arg name="id" type="ID" callback={() => goToId('goto')} />

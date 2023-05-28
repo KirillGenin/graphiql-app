@@ -1,14 +1,31 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MainRoutes } from '../../types/enums';
+import { MainRoutes, Registration } from '../../types/enums';
 import cookie from 'cookie';
-import { NavLink as NavLinkUi } from '@mantine/core';
-import { IconHome2, IconLogout, IconLogin, IconDatabaseSearch } from '@tabler/icons-react';
+import { Burger, Menu } from '@mantine/core';
+import { IconLogin, IconLogout } from '@tabler/icons-react';
 import styles from './Header.module.scss';
-import MainButton from '../common/Button';
+import MainButton from '../common/MainButton';
+import Navigation from './UI/Navigation';
+import LanguageBar from './UI/LanguageBar';
+import { useTranslation } from 'react-i18next';
+import { useAppDispatch } from '../../app/hooks';
+import { toggleRegType } from '../../app/slices/authSlice';
 
 const Header = () => {
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const { t } = useTranslation();
+
+  const handleSignIn = () => {
+    dispatch(toggleRegType(Registration.SignUp));
+    navigate(MainRoutes.AuthPage);
+  };
+
+  const handleLogIn = () => {
+    dispatch(toggleRegType(Registration.LogIn));
+    navigate(MainRoutes.AuthPage);
+  };
 
   const handleLogout = async () => {
     const { email, token, id } = cookie.parse(document.cookie);
@@ -20,32 +37,38 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
+      <Menu shadow="md" width={'10rem'}>
+        <Menu.Target>
+          <Burger className={styles.burger} opened={false} size={'1.5rem'} />
+        </Menu.Target>
+        <Menu.Dropdown>
+          <Navigation />
+        </Menu.Dropdown>
+      </Menu>
       <nav className={styles.navigation}>
-        <NavLinkUi
-          w={'8.5rem'}
-          label="Home"
-          onClick={() => navigate(MainRoutes.WelcomePage)}
-          icon={<IconHome2 size="1rem" stroke={1.5} />}
-        />
-        <NavLinkUi
-          w={'8.5rem'}
-          label="Registration"
-          onClick={() => navigate(MainRoutes.AuthPage)}
-          icon={<IconLogin size={'1.2rem'} />}
-        />
-        <NavLinkUi
-          w={'8.5rem'}
-          label="GraphiQL"
-          onClick={() => navigate(MainRoutes.GraphPage)}
-          icon={<IconDatabaseSearch size={'1.1rem'} />}
-        />
+        <Navigation />
       </nav>
-      <MainButton
-        onClick={handleLogout}
-        title="Log out"
-        type="button"
-        rightIcon={<IconLogout size={'1.2rem'} />}
-      />
+      <div>
+        <LanguageBar />
+        <MainButton
+          onClick={handleSignIn}
+          title={t('signup')!}
+          type="button"
+          rightIcon={<IconLogin size={'1.2rem'} />}
+        />
+        <MainButton
+          onClick={handleLogIn}
+          title={t('login')!}
+          type="button"
+          rightIcon={<IconLogin size={'1.2rem'} />}
+        />
+        <MainButton
+          onClick={handleLogout}
+          title={t('logout')!}
+          type="button"
+          rightIcon={<IconLogout size={'1.2rem'} />}
+        />
+      </div>
     </header>
   );
 };

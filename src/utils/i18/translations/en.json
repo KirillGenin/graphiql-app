@@ -1,0 +1,22 @@
+{
+  "navHome": "Home",
+  "navReg": "Registration",
+  "en": "ENG",
+  "ru": "RUS",
+  "logout": "Log out",
+  "aboutTeamTitle": "Project authors:",
+  "kirill": "Kirill Genin: Team lead, Front-end developer",
+  "yauhen": "Yauhen Naliotau: Front-end developer",
+  "dinara": "Dinara Navshirvanova: Disappeared",
+
+  "welcomeUser": "Hi! Welcome back ",
+  "welcomeNewcomer": "Hi! Welcome, my dear newcomer! ",
+  "welcomeLink": "Please log in or sing up.",
+  "button404title": "Back home",
+  "login": "Log In",
+  "signup": "Sign Up",
+  "loginMessage": "Already have an account?",
+  "signupMessage": "Don`t have an account?",
+  "email": "Enter your email adress",
+  "password": "Enter your password"
+}

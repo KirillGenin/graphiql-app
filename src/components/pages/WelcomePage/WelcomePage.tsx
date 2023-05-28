@@ -1,23 +1,53 @@
 import React from 'react';
 import { MainRoutes } from '../../../types/enums';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../../../utils/hooks/useAuth';
 import cookie from 'cookie';
+import styles from './WelcomePage.module.scss';
+import { Trans, useTranslation } from 'react-i18next';
+import { Center, List } from '@mantine/core';
+import { IconBrandGithub, IconError404 } from '@tabler/icons-react';
 
 const WelcomePage = () => {
   const { isAuth } = useAuth();
+  const { t } = useTranslation();
+
   const { email } = cookie.parse(document.cookie);
 
   return isAuth ? (
-    <h3>
-      {`Hi! Welcome back ${email}`}
-      <NavLink to={MainRoutes.GraphPage}></NavLink>
-    </h3>
+    <div className={styles.about}>
+      <h2 className={styles.title}>
+        <Trans i18nKey="welcomeUser">Hi! Welcome back </Trans>
+        {`${email}`}
+      </h2>
+
+      <h4 className={styles.title}>{t('aboutTeamTitle')}</h4>
+      <List size="xl">
+        <List.Item mb={'0.5rem'} icon={<IconBrandGithub size={'1.7rem'} />}>
+          <Link className={styles.link} to={'https://github.com/KirillGenin'}>
+            {t('kirill')}
+          </Link>
+        </List.Item>
+        <List.Item mb={'0.5rem'} icon={<IconBrandGithub size={'1.7rem'} />}>
+          <Link className={styles.link} to={'https://github.com/Disembow'}>
+            {t('yauhen')}
+          </Link>
+        </List.Item>
+        <List.Item mb={'0.5rem'} icon={<IconError404 size={'1.7rem'} />}>
+          {t('dinara')}
+        </List.Item>
+      </List>
+    </div>
   ) : (
-    <h3>
-      Hi! Welcome, my dear newcomer!&nbsp;
-      <NavLink to={MainRoutes.AuthPage}>Please sing up of log in.</NavLink>
-    </h3>
+    <Center>
+      <div style={{ textAlign: 'center' }}>
+        <h2 className={styles.title}>{t('welcomeNewcomer')}</h2>
+        <br />
+        <NavLink to={MainRoutes.AuthPage} className={styles.link}>
+          {t('welcomeLink')}
+        </NavLink>
+      </div>
+    </Center>
   );
 };
 

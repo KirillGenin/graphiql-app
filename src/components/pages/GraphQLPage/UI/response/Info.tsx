@@ -1,12 +1,11 @@
 import React, { FC } from 'react';
-import MainButton from '../../../../common/Button';
-import { IconArrowLeft } from '@tabler/icons-react';
 import { TScalar } from '../scalarTypes/type';
 import { useAppDispatch, useAppSelector } from '../../../../../app/hooks';
 import styles from '../../GraphQLPage.module.scss';
 import Arg from '../parts/Arg';
 import Int from '../scalarTypes/Int';
 import { toggleIsInfoLvl, toggleIsIntLvl } from '../../../../../app/slices/docsSlise';
+import ReturnButton from '../../../../common/ReturnButton';
 
 const Info: FC<TScalar> = ({ callback, title }) => {
   const dispatch = useAppDispatch();
@@ -21,12 +20,7 @@ const Info: FC<TScalar> = ({ callback, title }) => {
     <>
       {isVisible && (
         <div>
-          <MainButton
-            title={title}
-            type="button"
-            onClick={callback}
-            rightIcon={<IconArrowLeft size={'1.2rem'} />}
-          />
+          <ReturnButton title={title} onClick={callback} />
           <h4 className={styles.title}>Info</h4>
 
           <Arg name="count" type="Int" callback={() => setInfoLink('goto')} />

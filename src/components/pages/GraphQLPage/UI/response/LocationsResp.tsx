@@ -1,8 +1,6 @@
 import React, { FC, useState } from 'react';
 import Arg from '../parts/Arg';
 import { useAppDispatch, useAppSelector } from '../../../../../app/hooks';
-import MainButton from '../../../../common/Button';
-import { IconArrowLeft } from '@tabler/icons-react';
 import { TScalar } from '../scalarTypes/type';
 import styles from '../../GraphQLPage.module.scss';
 import {
@@ -11,6 +9,7 @@ import {
   toggleIsLocationsLvl,
 } from '../../../../../app/slices/docsSlise';
 import Info from './Info';
+import ReturnButton from '../../../../common/ReturnButton';
 
 const LocationsResp: FC<TScalar> = ({ callback, title }) => {
   const dispatch = useAppDispatch();
@@ -39,12 +38,7 @@ const LocationsResp: FC<TScalar> = ({ callback, title }) => {
     <>
       {isVisible && (
         <>
-          <MainButton
-            title={title}
-            type="button"
-            onClick={callback}
-            rightIcon={<IconArrowLeft size={'1.2rem'} />}
-          />
+          <ReturnButton title={title} onClick={callback} />
           <h4 className={styles.title}>Locations</h4>
           <div>
             <Arg name="info" type="Info" callback={goToInfo} lastArg={true} />

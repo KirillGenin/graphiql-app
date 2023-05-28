@@ -8,6 +8,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, User } from
 import { auth } from '../../../utils/auth/firebase';
 import AuthType from './UI/AuthType';
 import styles from './AuthPage.module.scss';
+import { useTranslation } from 'react-i18next';
 
 export interface NewUser extends User {
   accessToken: string;
@@ -15,6 +16,7 @@ export interface NewUser extends User {
 
 const AuthPage = () => {
   const { isAuth } = useAuth();
+  const { t } = useTranslation();
 
   const regType = useAppSelector((state) => state.user.regType);
   const navigate = useNavigate();
@@ -50,7 +52,7 @@ const AuthPage = () => {
   ) : (
     <div className={styles.wrapper}>
       <AuthForm
-        title={regType === Registration.LogIn ? 'Log In' : 'Sign Up'}
+        title={regType === Registration.LogIn ? `${t('login')}` : `${t('signup')}`}
         handleClick={handleAuth}
       />
       <AuthType />
