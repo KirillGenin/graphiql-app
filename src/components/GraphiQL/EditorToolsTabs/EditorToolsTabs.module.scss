@@ -39,6 +39,10 @@
 
 @media all and (max-width: 400px) {
   .graphiql-editor-tools-tabs {
-    gap: 5px;
+    gap: 0px;
+  }
+
+  .graphiql-un-styled {
+    padding: 3px;
   }
 }
