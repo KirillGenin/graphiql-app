@@ -2,12 +2,19 @@ import React from 'react';
 import { MainRoutes } from '../../../types/enums';
 import { Navigate } from 'react-router';
 import { useAuth } from '../../../utils/hooks/useAuth';
-import styles from './GraphQLPage.module.css';
+import GraphiQL from '../../GraphiQL';
+import styles from './GraphQLPage.module.scss';
 
 const GraphQLPage = () => {
   const { isAuth } = useAuth();
 
-  return isAuth ? <div>GraphQLPage</div> : <Navigate to={MainRoutes.AuthPage} />;
+  if (!isAuth) return <Navigate to={MainRoutes.AuthPage} />;
+
+  return (
+    <div className={styles.wrapper}>
+      <GraphiQL />
+    </div>
+  );
 };
 
 export default GraphQLPage;

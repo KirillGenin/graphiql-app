@@ -6,17 +6,26 @@
   "scripts": {
     "dev": "vite --open --port 8000",
     "build": "tsc && vite build",
-    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint --fix src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@codemirror/lang-json": "^6.0.1",
+    "@codemirror/language": "^6.7.0",
+    "@codemirror/state": "^6.2.0",
+    "@codemirror/view": "^6.12.0",
     "@reduxjs/toolkit": "^1.9.5",
+    "@uiw/react-codemirror": "^4.20.2",
+    "codemirror": "^6.0.1",
     "firebase": "^9.21.0",
+    "graphql": "^16.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router": "^6.11.1",
-    "react-router-dom": "^6.11.1"
+    "react-router-dom": "^6.11.1",
+    "react-tooltip": "^5.13.1",
+    "sass": "^1.62.1"
   },
   "devDependencies": {
     "@emotion/react": "^11.11.0",

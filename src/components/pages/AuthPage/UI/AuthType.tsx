@@ -1,7 +1,7 @@
 import React from 'react';
 import { Registration } from '../../../../types/enums';
-import { toggleRegType } from '../../../../store/slices/authSlice';
-import { useAppDispatch, useAppSelector } from '../../../../store/hooks';
+import { toggleRegType } from '../../../../app/slices/authSlice';
+import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
 import styles from '../AuthPage.module.css';
 
 const AuthType = () => {
