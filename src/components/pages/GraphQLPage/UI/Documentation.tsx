@@ -1,17 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import styles from '../GraphQLPage.module.scss';
 import DocumentationItem from './DocumentationItem';
-import { useAppSelector } from '../../../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../../../app/hooks';
 import { Center, Loader } from '@mantine/core';
 import { IconBook2 } from '@tabler/icons-react';
+import { URL, fetchSchema } from '../../../../app/slices/docsSlise';
 
 const Documentation = () => {
-  const [isVisible, setVisible] = useState<boolean>(true);
+  const [isVisible, setVisible] = useState<boolean>(false);
   const isLoading = useAppSelector((s) => s.docs.isLoading);
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchSchema(URL));
+  }, [dispatch]);
 
   useEffect(() => {
     const handleResize = () => {
-      setVisible(window.innerWidth > 568);
+      setVisible(window.innerWidth > 780);
     };
 
     window.addEventListener('resize', handleResize);

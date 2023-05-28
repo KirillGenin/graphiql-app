@@ -33,7 +33,7 @@ const AuthPage = () => {
           document.cookie = `email=${user.email}; expires=${expireDate}`;
           document.cookie = `id=${user.uid}; expires=${expireDate}`;
           document.cookie = `token=${user.accessToken}; expires=${expireDate}`;
-          navigate(MainRoutes.WelcomePage);
+          navigate(MainRoutes.GraphPage);
         })
         .catch((error) => error);
     } else if (regType === Registration.LogIn) {
@@ -42,7 +42,7 @@ const AuthPage = () => {
         document.cookie = `email=${user.email}; expires=${expireDate}`;
         document.cookie = `id=${user.uid}; expires=${expireDate}`;
         document.cookie = `token=${user.accessToken}; expires=${expireDate}`;
-        navigate('/');
+        navigate(MainRoutes.GraphPage);
       });
     }
   };

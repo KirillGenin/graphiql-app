@@ -1,23 +1,36 @@
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   border-bottom: 1px solid black;
+
+  @media (max-width: 780px) {
+    justify-content: flex-start;
+  }
 }
 
 .navigation {
   display: flex;
   flex-direction: row;
 
-  @media (max-width: 568px) {
+  @media (max-width: 780px) {
     display: none;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 780px) {
+    flex-direction: column;
   }
 }
 
 .burger {
   display: none;
 
-  @media (max-width: 568px) {
+  @media (max-width: 780px) {
     display: block;
   }
 }
