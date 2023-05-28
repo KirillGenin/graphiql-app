@@ -11,7 +11,7 @@ const Documentation = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setVisible(window.innerWidth > 568);
+      setVisible(window.innerWidth > 780);
     };
 
     window.addEventListener('resize', handleResize);
