@@ -9,6 +9,7 @@ import MainButton from '../../common/MainButton';
 import { toggleRegType } from '../../../app/slices/authSlice';
 import { useAppDispatch } from '../../../app/hooks';
 import cookie from 'cookie';
+import styles from '../Header.module.scss';
 
 const Navigation = () => {
   const dispatch = useAppDispatch();
@@ -33,7 +34,7 @@ const Navigation = () => {
     navigate(MainRoutes.WelcomePage);
   };
 
-  const styles = {
+  const stylesLink = {
     root: {
       borderRadius: '0.5rem',
       ':hover': { backgroundColor: '#f3f0f0' },
@@ -41,17 +42,17 @@ const Navigation = () => {
   };
 
   return (
-    <>
+    <div className={styles.nav}>
       <NavLinkUi
         w={'8.5rem'}
-        styles={styles}
+        styles={stylesLink}
         label={t('navHome')}
         onClick={() => navigate(MainRoutes.WelcomePage)}
         icon={<IconHome2 size="1rem" stroke={1.5} />}
       />
       <NavLinkUi
         w={'8.5rem'}
-        styles={styles}
+        styles={stylesLink}
         label="GraphiQL"
         onClick={() => navigate(MainRoutes.GraphPage)}
         icon={<IconDatabaseSearch size={'1.1rem'} />}
@@ -75,7 +76,7 @@ const Navigation = () => {
         type="button"
         rightIcon={<IconLogout size={'1.2rem'} />}
       />
-    </>
+    </div>
   );
 };
 
