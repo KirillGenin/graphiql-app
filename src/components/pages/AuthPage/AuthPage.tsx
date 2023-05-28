@@ -35,7 +35,7 @@ const AuthPage = () => {
           document.cookie = `token=${user.accessToken}; expires=${expireDate}`;
           navigate(MainRoutes.WelcomePage);
         })
-        .catch((error) => console.error(error.message));
+        .catch((error) => error);
     } else if (regType === Registration.LogIn) {
       signInWithEmailAndPassword(auth, email, password).then((data) => {
         const user = data.user as NewUser;

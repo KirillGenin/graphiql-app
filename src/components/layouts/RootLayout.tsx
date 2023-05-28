@@ -16,4 +16,14 @@ const RootLayout = () => {
   );
 };
 
+/* const RootLayout = () => {
+  return (
+    <>
+      <Main>
+        <Outlet />
+      </Main>
+    </>
+  );
+}; */
+
 export default RootLayout;

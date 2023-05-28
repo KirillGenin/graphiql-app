@@ -2,61 +2,15 @@ import React, { useEffect } from 'react';
 import { MainRoutes } from '../../../types/enums';
 import { Navigate } from 'react-router';
 import { useAuth } from '../../../utils/hooks/useAuth';
+import GraphiQL from '../../GraphiQL';
 import styles from './GraphQLPage.module.scss';
 import Documentation from './UI/Documentation';
-import Browser from './UI/Browser';
 import { URL, fetchSchema } from '../../../app/slices/docsSlise';
-import { useAppDispatch, useAppSelector } from '../../../app/hooks';
-
-type Field = {
-  args: [
-    {
-      name: string;
-      type: {
-        kind: string;
-        ofType: {
-          kind: string;
-          ofType: {
-            kind: string;
-            ofType: {
-              kind: string;
-            } | null;
-          } | null;
-        } | null;
-      };
-    }
-  ];
-  description: string;
-  name: string;
-};
-
-type Fields = {
-  character: Field;
-  characters: Field;
-  characterByIds: Field;
-  location: Field;
-  locations: Field;
-  locationByIds: Field;
-  episode: Field;
-  episodes: Field;
-  episodeByIds: Field;
-};
-
-type GraphQLObjectType = {
-  _fields: Fields;
-  name: string;
-  kind: string;
-};
-
-type GraphQLShema = {
-  _queryType: GraphQLObjectType;
-};
+import { useAppDispatch } from '../../../app/hooks';
 
 const GraphQLPage = () => {
   const { isAuth } = useAuth();
   const dispatch = useAppDispatch();
-  const data = useAppSelector((state) => state.docs.schema) as GraphQLShema;
-  console.log(data);
 
   useEffect(() => {
     dispatch(fetchSchema(URL));
@@ -65,7 +19,7 @@ const GraphQLPage = () => {
   return isAuth ? (
     <div className={styles.wrapper}>
       <Documentation />
-      <Browser />
+      <GraphiQL />
     </div>
   ) : (
     <Navigate to={MainRoutes.AuthPage} />
