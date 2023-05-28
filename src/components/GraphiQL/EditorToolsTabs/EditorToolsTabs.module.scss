@@ -1,0 +1,48 @@
+.graphiql-editor-tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-top: 1px solid #e0dbdb;
+}
+
+.graphiql-editor-tools-tabs {
+  display: flex;
+  gap: 25px;
+}
+
+.graphiql-un-styled {
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: transparent;
+
+  &:hover {
+    background-color: #f0ebeb;
+    outline: none;
+    border: none;
+  }
+}
+
+.active-tab {
+  color: #5ab663;
+}
+
+@media all and (max-width: 500px) {
+  .graphiql-editor-tools-tabs {
+    gap: 10px;
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .graphiql-editor-tools-tabs {
+    gap: 0px;
+  }
+
+  .graphiql-un-styled {
+    padding: 3px;
+  }
+}

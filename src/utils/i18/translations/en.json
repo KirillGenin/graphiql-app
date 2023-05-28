@@ -1,0 +1,37 @@
+{
+  "navHome": "Home",
+  "navReg": "Registration",
+  "en": "ENG",
+  "ru": "RUS",
+  "logout": "Log out",
+
+  "aboutTeamTitle": "Project authors:",
+  "kirill": "Kirill Genin: Team lead, Front-end developer",
+  "yauhen": "Yauhen Naliotau: Front-end developer",
+  "dinara": "Dinara Navshirvanova: Disappeared",
+  "task": "Task",
+  "rss": "via RSSchool",
+
+  "welcomeUser": "Hi! Welcome back ",
+  "welcomeNewcomer": "Hi! Welcome, my dear newcomer! ",
+  "welcomeLink": "Please log in or sing up.",
+  "button404title": "Back home",
+  "login": "Log In",
+  "signup": "Sign Up",
+  "loginMessage": "Already have an account?",
+  "signupMessage": "Don`t have an account?",
+  "email": "Enter your email adress",
+  "emailLabel": "Email",
+  "emailError": "Address entered incorrectly",
+  "password": "Enter your password",
+  "passwordLabel": "Password",
+  "passwordError": "Must not be shorter than 8 characters, contain at least 1 letter, 1 number and 1 special character",
+
+  "executeQuery": "Execute query",
+  "prettifyQuery": "Prettify query",
+  "variables": "Variables",
+  "headers": "Headers",
+  "hideEditorTools": "Hide Editor Tools",
+  "showEditorTools": "Show Editor Tools",
+  "rickandmortyapi": "Rick and Morty GraphQL"
+}
